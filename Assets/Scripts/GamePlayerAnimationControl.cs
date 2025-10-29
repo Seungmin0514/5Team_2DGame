@@ -25,4 +25,8 @@ public class GamePlayerAnimationControl : MonoBehaviour
     {
         PlayerEffectAnimator.SetTrigger("IsDoubleJump");
     }
+    public void Damaged()
+    {
+        PlayerAnimator.SetTrigger("Damaged");
+    }
 }

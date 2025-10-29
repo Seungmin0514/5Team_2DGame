@@ -6,7 +6,7 @@ using UnityEngine;
 public class GamePlayer : MonoBehaviour
 {
 
-    private int PlayerHP;
+    private int playerHP;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float doublejumpForce;
@@ -39,7 +39,7 @@ public class GamePlayer : MonoBehaviour
         this.speed = speed;
         this.jumpForce = jumpForce;
         this.doublejumpForce = doubleJumpForce;
-        this.PlayerHP = PlayerHP;
+        this.playerHP = PlayerHP;
     }
     
     
@@ -75,12 +75,20 @@ public class GamePlayer : MonoBehaviour
         }
     
     }
-
+    private void HpCheck()
+    {
+        if (playerHP <= 0)
+        {
+            Debug.Log("die");
+            
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Wall"))
         {
-            PlayerHP -= 1;
+            playerHP -= 1;
+            gamePlayerAnimationControl.Damaged();
         }
     }
 
