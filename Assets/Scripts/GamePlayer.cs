@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class GamePlayer : MonoBehaviour
 {
-    [SerializeField] protected float speed;
-    [SerializeField] protected float jumpForce;
-    [SerializeField] protected float doublejumpForce;
+
+    private int PlayerHP;
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float doublejumpForce;
     [SerializeField] float gravity = 100f;
     [SerializeField] Rigidbody2D rigidbody;
 
@@ -32,11 +34,12 @@ public class GamePlayer : MonoBehaviour
 
 
 
-    public void PlayerInit(float speed = 10f, float jumpForce = 30f, float doubleJumpForce = 20f)
+    public void PlayerInit(int PlayerHP = 3,float speed = 10f, float jumpForce = 30f, float doubleJumpForce = 20f)
     {
         this.speed = speed;
         this.jumpForce = jumpForce;
         this.doublejumpForce = doubleJumpForce;
+        this.PlayerHP = PlayerHP;
     }
     
     
@@ -73,5 +76,12 @@ public class GamePlayer : MonoBehaviour
     
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
+        {
+            PlayerHP -= 1;
+        }
+    }
 
 }
