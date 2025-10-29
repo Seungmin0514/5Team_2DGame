@@ -12,4 +12,10 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void AddItem(string itemID)
+    {
+        ownedItems.Add(itemID);
+        Debug.Log("인벤토리 추가: " + itemID);
+    }
 }

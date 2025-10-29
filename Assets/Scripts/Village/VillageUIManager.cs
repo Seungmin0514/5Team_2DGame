@@ -10,27 +10,27 @@ public class VillageUIManager : MonoBehaviour
     public GameObject inventoryPanel;
     public GameObject questPanel;
 
-    public PlayerVillageController playerController;
+    //public PlayerVillageController playerController;
 
     void Awake()
     {
         Instance = this;
     }
 
-    void LockPlayer(bool Locked)
+    void LockPlayer(bool locked)
     {
-        if (playerController != null)
-            playerController.enabled = !Locked;
+        //if (playerController != null)
+        //    playerController.enabled = !locked;
     }
 
-    public void OpenShop()
-    {
-        shopPanel.SetActive(true);
-        LockPlayer(true);
+    //public void OpenShop()
+    //{
+    //    shopPanel.SetActive(true);
+    //    LockPlayer(true);
 
-        if (ShopManager.Instance != null)
-            ShopManager.Instance.RefreshShopUI();
-    }
+    //    if (ShopManager.Instance != null)
+    //        ShopManager.Instance.RefreshShopUI();
+    //}
 
     public void CloseShop()
     {
@@ -44,7 +44,7 @@ public class VillageUIManager : MonoBehaviour
         LockPlayer(true);
 
         if (InventoryUI.Instance != null)
-            InventoryUI.Instance.RefreshInventoryUI();
+            InventoryUI.Instance.RefreshInventory();
     }
 
     public void CloseInventory()
@@ -53,14 +53,14 @@ public class VillageUIManager : MonoBehaviour
         LockPlayer(false);
     }
 
-    public void OpenQuest()
-    {
-        questPanel.SetActive(true);
-        LockPlayer(true);
+    //public void OpenQuest()
+    //{
+    //    questPanel.SetActive(true);
+    //    LockPlayer(true);
 
-        if (QuestManager.Instance != null)
-            QuestManager.Instance.RefreshQuestUI();
-    }
+    //    if (QuestManager.Instance != null)
+    //        QuestManager.Instance.RefreshQuestUI();
+    //}
 
     public void CloseQuest()
     {

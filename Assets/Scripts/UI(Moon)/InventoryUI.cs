@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static InventoryUI Instance;
+
+    public Transform gridParent;
+    public GameObject slotPrefab;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RefreshInventory()
     {
-        
+        foreach (Transform child in gridParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach(var itemId in InventoryManager.Instance.ownedItems)
+        { 
+            GameObject slot = Instantiate(slotPrefab, gridParent);
+            Text t = slot.GetComponent<Text>();
+            if (t != null)
+                t.text = itemId;
+        }
     }
 }
