@@ -79,7 +79,9 @@ public class GamePlayer : MonoBehaviour
     {
         if (playerHP <= 0)
         {
+            gamePlayerAnimationControl.Die();
             Debug.Log("die");
+            
             
         }
     }
@@ -89,6 +91,8 @@ public class GamePlayer : MonoBehaviour
         {
             playerHP -= 1;
             gamePlayerAnimationControl.Damaged();
+            HpCheck();
+
         }
     }
 
