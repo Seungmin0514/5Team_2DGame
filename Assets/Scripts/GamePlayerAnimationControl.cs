@@ -25,12 +25,16 @@ public class GamePlayerAnimationControl : MonoBehaviour
     {
         PlayerEffectAnimator.SetTrigger("IsDoubleJump");
     }
-    public void Damaged()
+    public void DamagedAnimation()
     {
         PlayerAnimator.SetTrigger("Damaged");
     }
-    public void Die()
+    public void DieAnimation()
     {
         PlayerAnimator.SetBool("Die",true);
+    }
+    public void UseSkillAnimation()
+    {
+        PlayerAnimator.SetTrigger("UseSkill");
     }
 }
