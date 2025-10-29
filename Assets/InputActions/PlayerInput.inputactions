@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "c499ec86-d5f1-41a4-8ec7-34721b39e6c1",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "3e1f56dd-907b-4150-9e4c-8d1449dd6701",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slide",
+                    "type": "Button",
+                    "id": "321f88f4-54a5-462f-bdf4-6c7668916d96",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill",
+                    "type": "Button",
+                    "id": "3fe82766-64a1-4ab8-913e-df7453da6cc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a1a57af9-8c8b-45ac-a066-517decf54298",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f9b4a2aa-bf9e-4b36-a56e-1c0044138bf2",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7380e07-2a2d-4158-abb7-ad71be4518db",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
