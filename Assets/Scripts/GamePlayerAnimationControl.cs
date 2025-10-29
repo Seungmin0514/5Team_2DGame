@@ -29,4 +29,8 @@ public class GamePlayerAnimationControl : MonoBehaviour
     {
         PlayerAnimator.SetTrigger("Damaged");
     }
+    public void Die()
+    {
+        PlayerAnimator.SetBool("Die",true);
+    }
 }
