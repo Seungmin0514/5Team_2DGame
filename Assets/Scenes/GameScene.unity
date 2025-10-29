@@ -406,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 30
+  doublejumpForce: 20
   gravity: 100
   rigidbody: {fileID: 1832486540}
 --- !u!61 &1832486539
@@ -479,7 +480,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1832486541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +525,7 @@ GameObject:
   - component: {fileID: 2002099356}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
