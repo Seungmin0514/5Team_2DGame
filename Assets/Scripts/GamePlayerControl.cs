@@ -17,4 +17,8 @@ public class GamePlayerControl : MonoBehaviour
     {
         player.Jump();
     }
+    private void OnSkill()
+    {
+        player.UseSkill();
+    }
 }

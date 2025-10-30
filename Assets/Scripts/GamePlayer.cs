@@ -79,7 +79,7 @@ public class GamePlayer : MonoBehaviour
     {
         if (playerHP <= 0)
         {
-            gamePlayerAnimationControl.Die();
+            gamePlayerAnimationControl.DieAnimation();
             Debug.Log("die");
             
             
@@ -90,10 +90,16 @@ public class GamePlayer : MonoBehaviour
         if (collision.CompareTag("Wall"))
         {
             playerHP -= 1;
-            gamePlayerAnimationControl.Damaged();
+            gamePlayerAnimationControl.DamagedAnimation();
             HpCheck();
 
         }
     }
+    public void UseSkill()
+    {
+        gamePlayerAnimationControl.UseSkillAnimation();
+    }
+
+
 
 }
