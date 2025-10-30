@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 1268491387}
   - component: {fileID: 1268491388}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameDataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -625,6 +625,14 @@ PrefabInstance:
       propertyPath: saleItemIds.Array.data[0]
       value: ItemDef_Potion
       objectReference: {fileID: 0}
+    - target: {fileID: 6742853265996724808, guid: b64ea150dc0b73548b3f82ec8e3e6b59, type: 3}
+      propertyPath: saleItemIds.Array.data[1]
+      value: ItemDef_Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742853265996724808, guid: b64ea150dc0b73548b3f82ec8e3e6b59, type: 3}
+      propertyPath: saleItemIds.Array.data[2]
+      value: ItemDef_Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 7437454755310815327, guid: b64ea150dc0b73548b3f82ec8e3e6b59, type: 3}
       propertyPath: m_Name
       value: Canvas_VillageUI
@@ -655,7 +663,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 8548722711763144591}
-  - {fileID: 2145808096}
   - {fileID: 558015171}
   - {fileID: 858341748}
   - {fileID: 1268491387}
+  - {fileID: 2145808096}
