@@ -6,13 +6,9 @@ using UnityEngine;
 public class GamePlayer : MonoBehaviour
 {
 
-    private int playerHP;
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float doublejumpForce;
-    [SerializeField] float gravity = 100f;
+    private int Hp;
     [SerializeField] Rigidbody2D rigidbody;
-    [SerializeField] private CharacterData characterData;
+    [SerializeField] public CharacterData characterData;
 
     private bool IsGround = false;
     private bool IsCanDoubleJump = false;
@@ -21,27 +17,25 @@ public class GamePlayer : MonoBehaviour
     private ISkill skill;
     private void Awake()
     {
-        PlayerInit();
+        
         gamePlayerControl = GetComponent<GamePlayerControl>();
         gamePlayerAnimationControl = GetComponent<GamePlayerAnimationControl>();
     }
     private void Update()
     {
-        rigidbody.velocity += Vector2.down * gravity * Time.deltaTime;
-
-
-        
+        if (!IsGround)
+        {
+            rigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
+        }
     }
 
+    
 
 
-    public void PlayerInit(int PlayerHP = 3,float speed = 10f, float jumpForce = 30f, float doubleJumpForce = 20f)
+    public void PlayerInit(CharacterData data)
     {
-        this.playerHP = PlayerHP;
-        this.speed = speed;
-        this.jumpForce = jumpForce;
-        this.doublejumpForce = doubleJumpForce;
-        
+        this.characterData = data;
+        Hp = characterData.maxHp;
     }
     
     
@@ -50,7 +44,7 @@ public class GamePlayer : MonoBehaviour
         if (IsGround)
         {
             gamePlayerAnimationControl.JumpAnimation();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, characterData.jumpForce);
             IsGround = false;
             
         }
@@ -63,7 +57,7 @@ public class GamePlayer : MonoBehaviour
     public void DoubleJump()
     {
             gamePlayerAnimationControl.DoubleJumpEffect();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, doublejumpForce);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, characterData.doubleJumpForce);
             IsCanDoubleJump = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -79,7 +73,7 @@ public class GamePlayer : MonoBehaviour
     }
     private void HpCheck()
     {
-        if (playerHP <= 0)
+        if (Hp <= 0)
         {
             gamePlayerAnimationControl.DieAnimation();
             Debug.Log("die");
@@ -91,7 +85,7 @@ public class GamePlayer : MonoBehaviour
     {
         if (collision.CompareTag("Wall"))
         {
-            playerHP -= 1;
+            Hp -= 1;
             gamePlayerAnimationControl.DamagedAnimation();
             HpCheck();
 

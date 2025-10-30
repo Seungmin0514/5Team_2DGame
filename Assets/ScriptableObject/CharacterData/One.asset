@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: One
   m_EditorClassIdentifier: 
   characterType: 0
+  portrait: {fileID: 0}
   maxHp: 3
   jumpForce: 30
   doubleJumpForce: 20
   speed: 20
+  gravity: 100
   animatorController: {fileID: 9100000, guid: 302c107bacc426b41be1d093ed801207, type: 2}
+  skills: 0
+  skillName: OneSkill
+  cooldown: 4

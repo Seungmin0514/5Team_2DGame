@@ -4,19 +4,19 @@ using UnityEngine;
 
 
 public enum CharacterType
-    {
-        One,
-        Two,
-        Three,
-    }
+{
+    One,
+    Two,
+    Three,
+}
 
 public class GameCharacterManager : MonoBehaviour
 {
     public static GameCharacterManager characterManager;
     public CharacterType characterType { get; private set; }
     [SerializeField] private List<CharacterData> characterData;
-    [SerializeField] private GameObject player;
-     
+    [SerializeField] private GamePlayer player;
+
     private void Awake()
     {
         if (characterManager != null)
@@ -34,22 +34,13 @@ public class GameCharacterManager : MonoBehaviour
 
     public void SetCharacter(CharacterType characterType)
     {
-        foreach (CharacterData data in characterData) {
-            if (data.characterType == characterType) { 
-
-            this.characterType = characterType;
-
-                player.GetComponent<GamePlayer>().PlayerInit(data.maxHp, data.speed, data.jumpForce, data.doubleJumpForce);
-
-                if (player.GetComponent<Animator>() != null && data.animatorController != null)
-                player.GetComponent<Animator>().runtimeAnimatorController = data.animatorController;
+        foreach (CharacterData data in characterData)
+        {
+            if (data.characterType == characterType)
+            {
+                player.PlayerInit(data);
+                Debug.Log("Ã£À½");
             }
-
-
-}
-
-
-
+        }
     }
-
 }
