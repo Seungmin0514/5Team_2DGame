@@ -36,10 +36,11 @@ public class GamePlayer : MonoBehaviour
 
     public void PlayerInit(int PlayerHP = 3,float speed = 10f, float jumpForce = 30f, float doubleJumpForce = 20f)
     {
+        this.playerHP = PlayerHP;
         this.speed = speed;
         this.jumpForce = jumpForce;
         this.doublejumpForce = doubleJumpForce;
-        this.playerHP = PlayerHP;
+        
     }
     
     

@@ -5,13 +5,15 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     [Header("섹션 설정")]
-    public GameObject[] sectionPrefabs;
+    public GameObject firstSectionPrefab; // 수정: 게임 시작 시 반드시 생성될 첫 번째 섹션
+    public GameObject[] sectionPrefabs; // 수정: 랜덤으로 생성될 섹션들
     public int initialSections = 3;
 
     [Header("스폰 설정")]
     public float sectionWidth = 15f;
     public float mapSpeed = 5f;
-    public float spawnDistanceFromCamera = 20f; // 카메라로부터 얼마나 멀리서 생성할지
+    public float spawnDistanceFromCamera = 20f; // 카메라로부터 얼마나 먼리서 생성할지
+    public float spawnHeight = 0f; // 수정: 섹션 생성 Y 위치 (Ground Y 좌표와 맞춤)
 
     private List<GameObject> spawnedSections = new List<GameObject>();
     private Camera mainCamera;
@@ -20,9 +22,21 @@ public class MapGenerator : MonoBehaviour
     {
         mainCamera = Camera.main;
 
-        // 초기 섹션들 생성
-        float startX = 10f; // 초기 Ground 뒤에서 시작
-        for (int i = 0; i < initialSections; i++)
+        // 수정: 첫 번째 섹션은 반드시 FirstSection 생성 (캐릭터 시작 위치)
+        float startX = 0f; // 캐릭터가 있는 위치에서 시작
+
+        if (firstSectionPrefab != null)
+        {
+            SpawnFirstSection(startX);
+            Debug.Log("FirstSection 생성 완료!");
+        }
+        else
+        {
+            Debug.LogError("FirstSection 프리팹이 할당되지 않았습니다!");
+        }
+
+        // 나머지 초기 섹션들은 랜덤 생성
+        for (int i = 1; i < initialSections; i++)
         {
             SpawnSection(startX + (i * sectionWidth));
         }
@@ -64,7 +78,7 @@ public class MapGenerator : MonoBehaviour
         int randomIndex = Random.Range(0, sectionPrefabs.Length);
         GameObject selectedSection = sectionPrefabs[randomIndex];
 
-        Vector3 spawnPosition = new Vector3(xPosition, 0, 0);
+        Vector3 spawnPosition = new Vector3(xPosition, spawnHeight, 0); // 수정: spawnHeight 사용
         GameObject newSection = Instantiate(selectedSection, spawnPosition, Quaternion.identity);
 
         // 섹션 이동 컴포넌트 추가
@@ -74,6 +88,21 @@ public class MapGenerator : MonoBehaviour
         spawnedSections.Add(newSection);
 
         Debug.Log($"섹션 생성: {selectedSection.name} at X={xPosition}, 현재 섹션 수: {spawnedSections.Count}");
+    }
+
+    // 수정: 첫 번째 섹션 전용 생성 메서드
+    void SpawnFirstSection(float xPosition)
+    {
+        Vector3 spawnPosition = new Vector3(xPosition, spawnHeight, 0); // 수정: spawnHeight 사용
+        GameObject newSection = Instantiate(firstSectionPrefab, spawnPosition, Quaternion.identity);
+
+        // 섹션 이동 컴포넌트 추가
+        SectionController controller = newSection.AddComponent<SectionController>();
+        controller.moveSpeed = mapSpeed;
+
+        spawnedSections.Add(newSection);
+
+        Debug.Log($"FirstSection 생성: {firstSectionPrefab.name} at X={xPosition}");
     }
 
     GameObject GetRightmostSection()
