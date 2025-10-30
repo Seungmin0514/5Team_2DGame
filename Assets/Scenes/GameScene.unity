@@ -291,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &423402021
 Grid:
   m_ObjectHideFlags: 0
@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aca883fac08e8442bc1dfecbc37da5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSectionPrefab: {fileID: 1741942056124698687, guid: 747e54f04fbc212408647ac2ce97c0de, type: 3}
   sectionPrefabs:
   - {fileID: 4136262647351206735, guid: eb4af676853e6404e9ba8b1b2e87d619, type: 3}
   - {fileID: 8678271090929762135, guid: 37c1ca73f4cacba45aa3e2af30bfc6bb, type: 3}
@@ -469,6 +470,7 @@ MonoBehaviour:
   sectionWidth: 15
   mapSpeed: 10
   spawnDistanceFromCamera: 20
+  spawnHeight: 0
 --- !u!4 &1061775202
 Transform:
   m_ObjectHideFlags: 0
