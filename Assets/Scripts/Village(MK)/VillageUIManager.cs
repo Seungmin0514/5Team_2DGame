@@ -23,14 +23,14 @@ public class VillageUIManager : MonoBehaviour
         //    playerController.enabled = !locked;
     }
 
-    //public void OpenShop()
-    //{
-    //    shopPanel.SetActive(true);
-    //    LockPlayer(true);
+    public void OpenShop()
+    {
+        shopPanel.SetActive(true);
+        LockPlayer(true);
 
-    //    if (ShopManager.Instance != null)
-    //        ShopManager.Instance.RefreshShopUI();
-    //}
+        if (ShopManager.Instance != null)
+            ShopManager.Instance.RefreshShopUI();
+    }
 
     public void CloseShop()
     {
@@ -53,14 +53,14 @@ public class VillageUIManager : MonoBehaviour
         LockPlayer(false);
     }
 
-    //public void OpenQuest()
-    //{
-    //    questPanel.SetActive(true);
-    //    LockPlayer(true);
+    public void OpenQuest()
+    {
+        questPanel.SetActive(true);
+        LockPlayer(true);
 
-    //    if (QuestManager.Instance != null)
-    //        QuestManager.Instance.RefreshQuestUI();
-    //}
+        if (QuestManager.Instance != null)
+            QuestManager.Instance.RefreshQuestUI();
+    }
 
     public void CloseQuest()
     {
