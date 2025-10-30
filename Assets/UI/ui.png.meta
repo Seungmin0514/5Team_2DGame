@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf6a75e0678136848ae2e815417a7594
+guid: d53ec0deb20d0db4bb3e2c10b3bc4f6a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_healthBar_bg
+      name: button_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 5, z: 3, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db93bc896002e8742820b6f10632c754
+      internalID: -776645699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button_01
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a542949627cb83d47aa3aef3b1dee0af
+      internalID: -2070986368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel00
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443191749f815cc4496f92defbd860be
+      internalID: 823697190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: black00
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b90aa55f92ae8ba4280c558f379c87f3
+      internalID: -133988033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pauseButton_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 5, z: 3, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e433c423d0ca264a8f790a5008da28a
+      internalID: 1931995357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pauseButton_01
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 2, z: 3, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98004a72ece9cbf428580f506f1f43a3
+      internalID: -1202119121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healthBar_bg
       rect:
         serializedVersion: 2
         x: 0
@@ -119,19 +245,19 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 2, y: 2, z: 2, w: 4}
+      border: {x: 2, y: 3, z: 2, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063a6fe4d4e0d4940af8227792bab004
-      internalID: 661338236
+      spriteID: d8c372db3039ab44788ebcf9bc904cc0
+      internalID: 760905898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_healthBar_filled
+      name: healthBar_filled
       rect:
         serializedVersion: 2
         x: 16
@@ -140,19 +266,19 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 3, y: 4, z: 3, w: 3}
+      border: {x: 2, y: 4, z: 2, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a03a5e9d1c7b294ab27943386d1873a
-      internalID: 1973754671
+      spriteID: 7aeeff67c522bb246ab242cc4886cba2
+      internalID: 791808957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_healthBar_Icon
+      name: heart00
       rect:
         serializedVersion: 2
         x: 32
@@ -160,14 +286,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ada05cedb68dd6e47bf8821e21d5c344
-      internalID: 1181110008
+      spriteID: aec8a2d918d1ba3489618bcec800122b
+      internalID: 1759069855
       vertices: []
       indices: 
       edges: []
@@ -183,9 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui_healthBar_Icon: 1181110008
-      ui_healthBar_bg: 661338236
-      ui_healthBar_filled: 1973754671
+      black00: -133988033
+      button_00: -776645699
+      button_01: -2070986368
+      healthBar_bg: 760905898
+      healthBar_filled: 791808957
+      heart00: 1759069855
+      panel00: 823697190
+      pauseButton_00: 1931995357
+      pauseButton_01: -1202119121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

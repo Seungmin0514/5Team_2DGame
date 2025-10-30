@@ -33,11 +33,11 @@ public class Pause : MonoBehaviour
         pauseMenu.SetActive(false);
         isPaused = false;
     }
-    public void onClickExitonGame()
+    public void ClickQuitGame()
     {
         SceneManager.LoadScene("VillageScene");
     }
-    public void onClickExitonVillage()
+    public void ClickQuitVillage()
     {
         Application.Quit();
     }
