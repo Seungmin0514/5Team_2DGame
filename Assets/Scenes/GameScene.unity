@@ -421,6 +421,7 @@ MonoBehaviour:
   initialSections: 3
   sectionWidth: 15
   mapSpeed: 10
+  spawnDistanceFromCamera: 20
 --- !u!4 &1061775202
 Transform:
   m_ObjectHideFlags: 0
@@ -754,7 +755,7 @@ Transform:
   m_GameObject: {fileID: 2002099352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.04, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
