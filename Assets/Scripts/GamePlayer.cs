@@ -7,7 +7,7 @@ public class GamePlayer : MonoBehaviour
 {
 
     private int Hp;
-    [SerializeField] Rigidbody2D rigidbody;
+    [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] public CharacterData characterData;
 
     private bool IsGround = false;
@@ -25,7 +25,7 @@ public class GamePlayer : MonoBehaviour
     {
         if (!IsGround)
         {
-            rigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
+            playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
         }
     }
 
@@ -44,7 +44,7 @@ public class GamePlayer : MonoBehaviour
         if (IsGround)
         {
             gamePlayerAnimationControl.JumpAnimation();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, characterData.jumpForce);
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.jumpForce);
             IsGround = false;
             
         }
@@ -57,7 +57,7 @@ public class GamePlayer : MonoBehaviour
     public void DoubleJump()
     {
             gamePlayerAnimationControl.DoubleJumpEffect();
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, characterData.doubleJumpForce);
+            playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.doubleJumpForce);
             IsCanDoubleJump = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
