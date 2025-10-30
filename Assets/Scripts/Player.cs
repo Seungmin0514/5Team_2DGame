@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject scanObject;
     public GameActoinManager actoinManager;
     Rigidbody2D rd;
+    private GameObject currentTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +25,25 @@ public class Player : MonoBehaviour
         if (rayHit.collider != null)
         {
             scanObject = rayHit.collider.gameObject;
+            if(currentTarget != scanObject)
+            {
+                if(currentTarget != null)
+                {
+                    ToggleCanvas(currentTarget, false);
+                }
+
+                currentTarget = scanObject;
+                ToggleCanvas(currentTarget, true);
+            }
         }
         else
         {
             scanObject = null;
+            if(currentTarget != null)
+            {
+                ToggleCanvas(currentTarget, false);
+                currentTarget = null;
+            }
         }
     }
     public void Interact(InputAction.CallbackContext context)
@@ -41,5 +57,14 @@ public class Player : MonoBehaviour
                 actoinManager.Action(scanObject);
             }
         }
+    }
+    private void ToggleCanvas(GameObject gameObject, bool isOn)
+    {
+        Canvas canvas = gameObject.GetComponentInChildren<Canvas>(true);
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(isOn);
+        }
+
     }
 }
