@@ -23,10 +23,9 @@ public class GamePlayer : MonoBehaviour
     }
     private void Update()
     {
-        if (!IsGround)
-        {
+        
             playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
-        }
+        
     }
 
     
