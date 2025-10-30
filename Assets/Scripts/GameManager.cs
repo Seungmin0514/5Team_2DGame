@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int Gold { get; private set; }
 
-
+    
     private void Awake()
     {
         
