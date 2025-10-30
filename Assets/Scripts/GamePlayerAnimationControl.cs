@@ -13,6 +13,10 @@ public class GamePlayerAnimationControl : MonoBehaviour
     {
         
     }
+    public void InitAnimator(RuntimeAnimatorController runtimeAnimatorController) 
+    {
+        PlayerAnimator.runtimeAnimatorController = runtimeAnimatorController;
+    }
     public void JumpAnimation()
     {
         PlayerAnimator.SetBool("IsJump", true);

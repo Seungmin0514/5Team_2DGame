@@ -29,7 +29,7 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-        SetCharacter(CharacterType.Two); //테스트용
+        SetCharacter(CharacterType.Three); //테스트용
     }
 
     public void SetCharacter(CharacterType characterType)
@@ -39,7 +39,7 @@ public class GameCharacterManager : MonoBehaviour
             if (data.characterType == characterType)
             {
                 player.PlayerInit(data);
-                Debug.Log("찾음");
+                
             }
         }
     }

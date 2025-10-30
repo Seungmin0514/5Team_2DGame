@@ -33,8 +33,9 @@ public class GamePlayer : MonoBehaviour
 
     public void PlayerInit(CharacterData data)
     {
-        this.characterData = data;
+        characterData = data;
         Hp = characterData.maxHp;
+        gamePlayerAnimationControl.InitAnimator(characterData.animatorController);
     }
     
     
