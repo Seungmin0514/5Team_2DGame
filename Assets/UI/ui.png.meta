@@ -298,6 +298,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Panel_Blank00
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be6c4cc98465cbc4b8c8e8c85c09b5dc
+      internalID: -380483339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hp_divider
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 2
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd1fe75cea6d7d4c9dcf20518882574
+      internalID: 781640049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -309,12 +351,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Panel_Blank00: -380483339
       black00: -133988033
       button_00: -776645699
       button_01: -2070986368
       healthBar_bg: 760905898
       healthBar_filled: 791808957
       heart00: 1759069855
+      hp_divider: 781640049
       panel00: 823697190
       pauseButton_00: 1931995357
       pauseButton_01: -1202119121
