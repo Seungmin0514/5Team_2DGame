@@ -29,7 +29,6 @@ public class ParallaxBackground : MonoBehaviour
     public float baseSpeed = 5f;  // 맵의 기본 이동 속도 (MapGenerator의 mapSpeed와 동일하게 설정)
 
     private Camera mainCamera;
-    private Vector3 previousCameraPosition;
 
     void Start()
     {
@@ -41,8 +40,6 @@ public class ParallaxBackground : MonoBehaviour
             return;
         }
 
-        previousCameraPosition = mainCamera.transform.position;
-
         // 수정: 레이어 null 체크
         if (backLayer == null) Debug.LogWarning("Back Layer가 할당되지 않았습니다!");
         if (middleLayer == null) Debug.LogWarning("Middle Layer가 할당되지 않았습니다!");
@@ -53,61 +50,81 @@ public class ParallaxBackground : MonoBehaviour
     {
         if (mainCamera == null) return;
 
-        // 카메라 이동량 계산
-        Vector3 cameraDelta = mainCamera.transform.position - previousCameraPosition;
+        // 수정: 시간 기반으로 배경을 왼쪽으로 이동
+        float deltaTime = Time.deltaTime;
 
-        // 각 레이어를 다른 속도로 이동
+        // 각 레이어를 다른 속도로 왼쪽으로 이동
         if (backLayer != null)
         {
-            backLayer.position += new Vector3(cameraDelta.x * backLayerSpeed, 0, 0);
+            backLayer.position += Vector3.left * baseSpeed * backLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(backLayer); // 수정: 매 프레임 체크
         }
 
         if (middleLayer != null)
         {
-            middleLayer.position += new Vector3(cameraDelta.x * middleLayerSpeed, 0, 0);
+            middleLayer.position += Vector3.left * baseSpeed * middleLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(middleLayer); // 수정: 매 프레임 체크
         }
 
         if (frontLayer != null)
         {
-            frontLayer.position += new Vector3(cameraDelta.x * frontLayerSpeed, 0, 0);
+            frontLayer.position += Vector3.left * baseSpeed * frontLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(frontLayer); // 수정: 매 프레임 체크
         }
-
-        previousCameraPosition = mainCamera.transform.position;
-
-        // 수정: 배경 반복 처리 (무한 스크롤)
-        CheckAndRepositionLayers();
     }
 
-    // 수정: 배경이 화면 밖으로 나가면 반대편으로 이동 (무한 루프)
-    void CheckAndRepositionLayers()
+    // 수정: 레이어의 자식 스프라이트들을 체크하고 재배치
+    void CheckAndRepositionLayer(Transform layer)
     {
-        float cameraX = mainCamera.transform.position.x;
-        float screenWidth = mainCamera.orthographicSize * mainCamera.aspect * 2f;
+        if (layer == null || layer.childCount == 0) return;
 
-        CheckRepositionLayer(backLayer, cameraX, screenWidth);
-        CheckRepositionLayer(middleLayer, cameraX, screenWidth);
-        CheckRepositionLayer(frontLayer, cameraX, screenWidth);
-    }
+        // 카메라의 왼쪽 끝 계산 (여유 공간 추가)
+        float cameraLeftEdge = mainCamera.transform.position.x - (mainCamera.orthographicSize * mainCamera.aspect) - 5f;
 
-    void CheckRepositionLayer(Transform layer, float cameraX, float screenWidth)
-    {
-        if (layer == null) return;
-
-        // 배경의 왼쪽 끝이 화면 왼쪽을 완전히 벗어났는지 확인
-        SpriteRenderer spriteRenderer = layer.GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        foreach (Transform child in layer)
         {
-            float layerWidth = spriteRenderer.bounds.size.x;
-            float layerRightEdge = layer.position.x + layerWidth / 2f;
+            if (child == null) continue;
 
-            // 배경이 화면 왼쪽을 벗어나면 오른쪽으로 재배치
-            if (layerRightEdge < cameraX - screenWidth)
+            SpriteRenderer spriteRenderer = child.GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null) continue;
+
+            float spriteWidth = spriteRenderer.bounds.size.x;
+            float spriteRightEdge = child.position.x + spriteWidth / 2f;
+
+            // 수정: 스프라이트의 오른쪽 끝이 화면 왼쪽을 완전히 벗어났는지 확인
+            if (spriteRightEdge < cameraLeftEdge)
             {
-                layer.position = new Vector3(
-                    layer.position.x + layerWidth * 2f,
-                    layer.position.y,
-                    layer.position.z
-                );
+                // 수정: 같은 레이어 내에서 가장 오른쪽에 있는 스프라이트 찾기
+                float maxX = float.MinValue;
+                Transform rightmostSprite = null;
+
+                foreach (Transform other in layer)
+                {
+                    if (other != null && other != child)
+                    {
+                        if (other.position.x > maxX)
+                        {
+                            maxX = other.position.x;
+                            rightmostSprite = other;
+                        }
+                    }
+                }
+
+                // 수정: 가장 오른쪽 스프라이트 옆에 재배치
+                if (rightmostSprite != null)
+                {
+                    SpriteRenderer rightRenderer = rightmostSprite.GetComponent<SpriteRenderer>();
+                    float rightWidth = rightRenderer != null ? rightRenderer.bounds.size.x : spriteWidth;
+
+                    // 수정: 틈이 생기지 않도록 정확히 붙여서 배치
+                    child.position = new Vector3(
+                        rightmostSprite.position.x + rightWidth,
+                        child.position.y,
+                        child.position.z
+                    );
+
+                    Debug.Log($"{child.name} 재배치 완료! 새 위치: {child.position.x}");
+                }
             }
         }
     }
