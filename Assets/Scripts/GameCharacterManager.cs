@@ -29,7 +29,7 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-        SetCharacter(CharacterType.One); //테스트용
+        SetCharacter(CharacterType.Two); //테스트용
     }
 
     public void SetCharacter(CharacterType characterType)

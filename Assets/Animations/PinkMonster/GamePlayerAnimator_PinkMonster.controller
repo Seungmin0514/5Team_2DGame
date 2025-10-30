@@ -45,7 +45,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f7e97db7ff0de9b4db9f58212e2bf7e6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6b4dfd38fdb83fc48947c2ad98fa9eb9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 005ed16d6b46815418af763f24f60af2, type: 2}
+  m_Motion: {fileID: 7400000, guid: d9cd1439ef384c14389fd8572d3b81e3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 09bf6aa25aa23e74987738cb3d7acabe, type: 2}
+  m_Motion: {fileID: 7400000, guid: 70ae5bd61654685459bf50eede2e314c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -230,7 +230,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5fbe9785d7ca10d4aa7f2f196d442186, type: 2}
+  m_Motion: {fileID: 7400000, guid: 823ddd70c1635274d9adb2a7c86b9030, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -292,7 +292,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GamePlayerAnimator
+  m_Name: GamePlayerAnimator_PinkMonster
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsJump
@@ -402,7 +402,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aa4a4f0a79ebe5a4dbb5a5abcb0b8ee9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5dbd3f1c04766c34990033b9343bb4f0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
