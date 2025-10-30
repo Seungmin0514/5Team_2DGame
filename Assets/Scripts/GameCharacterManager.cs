@@ -29,7 +29,7 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-        SetCharacter(CharacterType.One);
+        SetCharacter(CharacterType.One); //테스트용
     }
 
     public void SetCharacter(CharacterType characterType)
@@ -43,9 +43,6 @@ public class GameCharacterManager : MonoBehaviour
 
                 if (player.GetComponent<Animator>() != null && data.animatorController != null)
                 player.GetComponent<Animator>().runtimeAnimatorController = data.animatorController;
-                
-                
-
             }
 
 

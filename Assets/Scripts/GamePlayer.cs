@@ -12,12 +12,13 @@ public class GamePlayer : MonoBehaviour
     [SerializeField] private float doublejumpForce;
     [SerializeField] float gravity = 100f;
     [SerializeField] Rigidbody2D rigidbody;
+    [SerializeField] private CharacterData characterData;
 
     private bool IsGround = false;
     private bool IsCanDoubleJump = false;
     private GamePlayerControl gamePlayerControl;
     private GamePlayerAnimationControl gamePlayerAnimationControl;
-
+    private ISkill skill;
     private void Awake()
     {
         PlayerInit();
