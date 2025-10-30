@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public GameActoinManager actoinManager;
 
     float horizontalMovement;
     //Jump
@@ -21,11 +22,18 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        actoinManager = FindObjectOfType<GameActoinManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(actoinManager != null && actoinManager.isAction)
+        {
+            rb.velocity = new Vector2(0,rb.velocity.y);
+            animator.SetFloat("magnitude", 0);
+            return;
+        }
         rb.velocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y);
         FlipSprite(horizontalMovement);
         animator.SetFloat("yVelocity", rb.velocity.y);
@@ -35,18 +43,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if(moveInput > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }else if(moveInput < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1,transform.localScale.y, transform.localScale.z);
         }
     }
     public void Move(InputAction.CallbackContext context)
     {
+        if(actoinManager != null && actoinManager.isAction)
+        {
+            horizontalMovement = 0;
+            return;
+        }
         horizontalMovement = context.ReadValue<Vector2>().x;
     }
     public void Jump(InputAction.CallbackContext context)
     {
+        if(actoinManager != null && actoinManager.isAction)
+        {
+            return;
+        }
         if (isGrounded())
         {
             if (context.performed)
