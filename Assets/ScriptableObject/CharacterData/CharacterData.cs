@@ -8,10 +8,16 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class CharacterData : ScriptableObject
 {
     public CharacterType characterType;
-   // public Sprite portrait;
+    public Sprite portrait;
     public int maxHp;
     public float jumpForce;
     public float doubleJumpForce;
     public float speed;
+    public float gravity;
     public RuntimeAnimatorController animatorController;
+    public Skills skills;
+    public string skillName;
+    public float cooldown;
+
+
 }

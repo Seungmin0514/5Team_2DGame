@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData:
   - {fileID: 11400000, guid: 9e2096cb923c98047b0dde5e1531f544, type: 2}
-  player: {fileID: 1832486534}
+  player: {fileID: 1832486538}
 --- !u!4 &245554608
 Transform:
   m_ObjectHideFlags: 0
@@ -655,11 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4089c5a3cdec57428a3258728e2237a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 30
-  doublejumpForce: 20
-  gravity: 100
   rigidbody: {fileID: 1832486540}
+  characterData: {fileID: 0}
 --- !u!61 &1832486539
 BoxCollider2D:
   m_ObjectHideFlags: 0
