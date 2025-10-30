@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4089c5a3cdec57428a3258728e2237a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 1832486540}
+  playerRigidbody: {fileID: 1832486540}
   characterData: {fileID: 0}
 --- !u!61 &1832486539
 BoxCollider2D:
