@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
     }
     void Start()
     {
-        SetupHPBar(10);
+        SetupHPBar(maxHP);
     }
 
     public void SetupHPBar(int newMaxHP)
