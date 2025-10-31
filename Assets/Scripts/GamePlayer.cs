@@ -7,6 +7,10 @@ public class GamePlayer : MonoBehaviour
 {
 
     public int Hp { get; private set; }
+    public float moveSpeed = 5f;
+    public float skillSpeedMultiplier = 1f; 
+
+    public float CurrentSpeed => moveSpeed * skillSpeedMultiplier;
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] public CharacterData characterData;
 
@@ -42,12 +46,18 @@ public class GamePlayer : MonoBehaviour
                 break;
             }
     }
-
+    public IEnumerator SpeedBoost(float multiplier, float duration)
+    {
+        skillSpeedMultiplier *= multiplier;
+        yield return new WaitForSeconds(duration);
+        skillSpeedMultiplier /= multiplier;
+    }
 
     public void PlayerInit(CharacterData data)
     {
         characterData = data;
         Hp = characterData.maxHp;
+        moveSpeed = characterData.speed;
         gamePlayerAnimationControl.InitAnimator(characterData.animatorController);
         SkillSet(data.skills);
         
@@ -120,4 +130,12 @@ public class GamePlayer : MonoBehaviour
         gamePlayerAnimationControl.EndSlideAnimation();
     }
 
+    public void HpHeal(int heal)
+    {
+        Hp += heal;
+        if (Hp >= characterData.maxHp)
+        {
+            Hp = characterData.maxHp;
+        }
+    }
 }
