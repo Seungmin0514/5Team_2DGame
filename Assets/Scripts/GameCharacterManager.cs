@@ -31,7 +31,7 @@ public class GameCharacterManager : MonoBehaviour
     private void Start()
     {
 
-        SetCharacter(CharacterType.Two);
+        SetCharacter(CharacterType.One);
     }
 
     public void SetCharacter(CharacterType characterType)

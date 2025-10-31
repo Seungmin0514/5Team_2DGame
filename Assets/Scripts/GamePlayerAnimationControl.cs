@@ -11,7 +11,7 @@ public class GamePlayerAnimationControl : MonoBehaviour
 
     private void Awake()
     {
-        
+         
     }
     public void InitAnimator(RuntimeAnimatorController runtimeAnimatorController) 
     {
@@ -40,5 +40,13 @@ public class GamePlayerAnimationControl : MonoBehaviour
     public void UseSkillAnimation()
     {
         PlayerAnimator.SetTrigger("UseSkill");
+    }
+    public void UseSlideAnimation()
+    {
+        PlayerAnimator.SetBool("IsSlide", true);
+    }
+    public void EndSlideAnimation()
+    {
+        PlayerAnimator.SetBool("IsSlide",false  );
     }
 }
