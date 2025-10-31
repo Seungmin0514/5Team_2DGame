@@ -6,6 +6,17 @@ using UnityEngine;
 public class GamePlayer : MonoBehaviour
 {
 
+    public enum PlayerMode
+    {
+        nomal,
+        god,
+    }
+    
+    
+
+    private bool isIgnoringWall = false;
+
+    public PlayerMode playerMode = PlayerMode.nomal;
     public int Hp { get; private set; }
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
@@ -48,10 +59,36 @@ public class GamePlayer : MonoBehaviour
     }
     public IEnumerator SpeedBoost(float multiplier, float duration)
     {
+       
         skillSpeedMultiplier *= multiplier;
         yield return new WaitForSeconds(duration);
         skillSpeedMultiplier /= multiplier;
+        
     }
+    public IEnumerator IgnoreWall(float duration)
+    {
+        if (isIgnoringWall) yield break; 
+        isIgnoringWall = true;
+
+        
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Wall"),
+            true
+        );
+
+        yield return new WaitForSeconds(duration);
+
+        
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Wall"),
+            false
+        );
+
+        isIgnoringWall = false;
+    }
+
 
     public void PlayerInit(CharacterData data)
     {
