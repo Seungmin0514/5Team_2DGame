@@ -12,8 +12,8 @@ public class GamePlayer : MonoBehaviour
 
     private bool IsGround = false;
     private bool IsCanDoubleJump = false;
-    private GamePlayerControl gamePlayerControl;
-    private GamePlayerAnimationControl gamePlayerAnimationControl;
+    [SerializeField]private GamePlayerControl gamePlayerControl;
+   [SerializeField] private GamePlayerAnimationControl gamePlayerAnimationControl;
     private ISkill skill;
     private void Awake()
     {
@@ -33,8 +33,9 @@ public class GamePlayer : MonoBehaviour
 
     public void PlayerInit(CharacterData data)
     {
-        this.characterData = data;
+        characterData = data;
         Hp = characterData.maxHp;
+        gamePlayerAnimationControl.InitAnimator(characterData.animatorController);
     }
     
     
@@ -94,7 +95,13 @@ public class GamePlayer : MonoBehaviour
     {
         gamePlayerAnimationControl.UseSkillAnimation();
     }
-
-
+    public void UseSlide()
+    {
+        gamePlayerAnimationControl.UseSlideAnimation();
+    }
+    public void EndSlide()
+    {
+        gamePlayerAnimationControl.EndSlideAnimation();
+    }
 
 }
