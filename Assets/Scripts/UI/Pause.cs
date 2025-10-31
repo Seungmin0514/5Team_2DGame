@@ -29,16 +29,19 @@ public class Pause : MonoBehaviour
     }
     public void PauseOff()
     {
+        PlayerPrefs.Save();
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         isPaused = false;
     }
-    public void onClickExitonGame()
+    public void ClickQuitGame()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene("VillageScene");
     }
-    public void onClickExitonVillage()
+    public void ClickQuitVillage()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 }

@@ -22,13 +22,18 @@ public class GamePlayerControl : MonoBehaviour
         if (context.performed) // 눌렀을 때 한 번
         {
            player.Jump();
-        Debug.Log("호출");
+        
         }
         
     }
-   public void OnSkill()
+   public void OnSkill(InputAction.CallbackContext context)
     {
-        player.UseSkill();
+        if (context.performed) // 눌렀을 때 한 번
+        {
+            player.UseSkill();
+            
+        }
+        
     }
     public void OnSlide(InputAction.CallbackContext context)
     {
