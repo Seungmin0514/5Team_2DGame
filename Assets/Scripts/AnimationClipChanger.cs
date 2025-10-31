@@ -28,8 +28,21 @@ public class AnimationClipChanger : MonoBehaviour
 
     void Start()
     {
-        SwitchToTypeA();
-        GameDataManager.Instance.selectedCharacter = CharacterType.Two;
+        switch (GameDataManager.Instance.selectedCharacter)
+        {
+            case CharacterType.One:
+                SwitchToTypeB();
+                break;
+            case CharacterType.Two:
+                SwitchToTypeA();
+                break;
+            case CharacterType.Three:
+                SwitchToTypeC();
+                break;
+            default:
+                SwitchToTypeA();
+                break;
+        }
     }
     void Awake()
     {
