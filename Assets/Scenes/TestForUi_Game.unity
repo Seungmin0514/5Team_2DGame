@@ -2825,8 +2825,9 @@ GameObject:
   - component: {fileID: 1682357623}
   - component: {fileID: 1682357625}
   - component: {fileID: 1682357624}
+  - component: {fileID: 1682357626}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SelectChar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2889,6 +2890,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682357622}
   m_CullTransparentMesh: 1
+--- !u!95 &1682357626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682357622}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a793540729b5469439f91e95c9704698, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1686810764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e3b35b821ce244c931144d2dc9ccbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1832486538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3334,6 +3359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 1832486540}
   characterData: {fileID: 0}
+  gamePlayerControl: {fileID: 0}
+  gamePlayerAnimationControl: {fileID: 0}
 --- !u!61 &1832486539
 BoxCollider2D:
   m_ObjectHideFlags: 0
