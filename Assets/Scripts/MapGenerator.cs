@@ -13,7 +13,7 @@ public class MapGenerator : MonoBehaviour
     // MODIFIED: sectionWidth를 실제 프리팹 크기에 맞게 조절하세요
     public float sectionWidth = 15f;
     // MODIFIED: sectionGap을 조절하여 섹션 간격 설정
-    public float sectionGap = 5f;
+    public float sectionGap = 20f;
     public float mapSpeed = 5f;
     public float spawnDistanceFromCamera = 20f;
     public float spawnHeight = 0f;
