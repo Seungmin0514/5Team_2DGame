@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Village2Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/VillageScene.unity
+    guid: 22cf671bdd8ba564f98e87b6cd169de6
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: d1a4026d270553741b1561b6ff9de331
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d3e1e0d7cfefb5d41ae2ef9c08d18516, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 25134a599083a4249bea94be7ec67a61, type: 3}

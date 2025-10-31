@@ -18,6 +18,6 @@ public class CharacterData : ScriptableObject
     public Skills skills;
     public string skillName;
     public float cooldown;
-
+    
 
 }
