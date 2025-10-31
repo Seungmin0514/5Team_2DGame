@@ -37,7 +37,8 @@ public class ThreeSkill : ISkill
     {
         Debug.Log("스피드 스킬 사용!");
         player.StartCoroutine(player.SpeedBoost(1.5f, 3f));
-        // 1.5배 속도로 3초 동안 유지
+        player.StartCoroutine(player.IgnoreWall(3.5f));
+        
         Debug.Log("SkillThree");
     }
 }
