@@ -6,7 +6,22 @@ using UnityEngine;
 public class GamePlayer : MonoBehaviour
 {
 
-    private int Hp;
+    public enum PlayerMode
+    {
+        nomal,
+        god,
+    }
+    
+    
+
+    private bool isIgnoringWall = false;
+
+    public PlayerMode playerMode = PlayerMode.nomal;
+    public int Hp { get; private set; }
+    public float moveSpeed = 5f;
+    public float skillSpeedMultiplier = 1f; 
+
+    public float CurrentSpeed => moveSpeed * skillSpeedMultiplier;
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] public CharacterData characterData;
 
@@ -28,14 +43,61 @@ public class GamePlayer : MonoBehaviour
         
     }
 
-    
+    public void SkillSet(Skills skill)
+    {
+        switch (skill) {
+            case Skills.One:
+                this.skill = new OneSkill();
+                break;
+            case Skills.Two:
+                this.skill = new TwoSkill();
+                break;
+            case Skills.Three:
+                this.skill = new ThreeSkill();
+                break;
+            }
+    }
+    public IEnumerator SpeedBoost(float multiplier, float duration)
+    {
+       
+        skillSpeedMultiplier *= multiplier;
+        yield return new WaitForSeconds(duration);
+        skillSpeedMultiplier /= multiplier;
+        
+    }
+    public IEnumerator IgnoreWall(float duration)
+    {
+        if (isIgnoringWall) yield break; 
+        isIgnoringWall = true;
+
+        
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Wall"),
+            true
+        );
+
+        yield return new WaitForSeconds(duration);
+
+        
+        Physics2D.IgnoreLayerCollision(
+            LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("Wall"),
+            false
+        );
+
+        isIgnoringWall = false;
+    }
 
 
     public void PlayerInit(CharacterData data)
     {
         characterData = data;
         Hp = characterData.maxHp;
+        moveSpeed = characterData.speed;
         gamePlayerAnimationControl.InitAnimator(characterData.animatorController);
+        SkillSet(data.skills);
+        
     }
     
     
@@ -93,6 +155,7 @@ public class GamePlayer : MonoBehaviour
     }
     public void UseSkill()
     {
+        skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
     }
     public void UseSlide()
@@ -104,4 +167,12 @@ public class GamePlayer : MonoBehaviour
         gamePlayerAnimationControl.EndSlideAnimation();
     }
 
+    public void HpHeal(int heal)
+    {
+        Hp += heal;
+        if (Hp >= characterData.maxHp)
+        {
+            Hp = characterData.maxHp;
+        }
+    }
 }

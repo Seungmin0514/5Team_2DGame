@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameDataManager : MonoBehaviour
 {
-    public static GameDataManager Instance; 
+    public static GameDataManager Instance;
 
     [SerializeField] int defaultCoins = 200;  
     const string KEY_COINS = "coins";          
