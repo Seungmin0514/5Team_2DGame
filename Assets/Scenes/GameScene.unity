@@ -735,11 +735,18 @@ MonoBehaviour:
   sectionPrefabs:
   - {fileID: 4136262647351206735, guid: eb4af676853e6404e9ba8b1b2e87d619, type: 3}
   - {fileID: 8678271090929762135, guid: 37c1ca73f4cacba45aa3e2af30bfc6bb, type: 3}
+  - {fileID: 358037894253277184, guid: 2ffbadd34d741de4eab21b403846e3ae, type: 3}
+  - {fileID: 7412457400655202020, guid: b795193e4d8a9434d9354418f53d7e6a, type: 3}
+  - {fileID: 3189952509564043827, guid: 32703a917ee4d9348904e063d4fac140, type: 3}
   initialSections: 3
   sectionWidth: 15
+  sectionGap: 5
   mapSpeed: 10
   spawnDistanceFromCamera: 20
   spawnHeight: 0
+  showDebugLogs: 1
+  showGizmos: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &1061775202
 Transform:
   m_ObjectHideFlags: 0
