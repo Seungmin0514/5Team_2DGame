@@ -6,7 +6,7 @@ using UnityEngine;
 public class GamePlayer : MonoBehaviour
 {
 
-    private int Hp;
+    public int Hp { get; private set; }
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] public CharacterData characterData;
 
@@ -28,7 +28,20 @@ public class GamePlayer : MonoBehaviour
         
     }
 
-    
+    public void SkillSet(Skills skill)
+    {
+        switch (skill) {
+            case Skills.One:
+                this.skill = new OneSkill();
+                break;
+            case Skills.Two:
+                this.skill = new TwoSkill();
+                break;
+            case Skills.Three:
+                this.skill = new ThreeSkill();
+                break;
+            }
+    }
 
 
     public void PlayerInit(CharacterData data)
@@ -36,6 +49,8 @@ public class GamePlayer : MonoBehaviour
         characterData = data;
         Hp = characterData.maxHp;
         gamePlayerAnimationControl.InitAnimator(characterData.animatorController);
+        SkillSet(data.skills);
+        
     }
     
     
@@ -93,6 +108,7 @@ public class GamePlayer : MonoBehaviour
     }
     public void UseSkill()
     {
+        skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
     }
     public void UseSlide()
