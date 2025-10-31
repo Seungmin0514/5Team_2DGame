@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 
@@ -29,7 +30,8 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-        SetCharacter(CharacterType.Two); //테스트용
+
+        SetCharacter(CharacterType.One);
     }
 
     public void SetCharacter(CharacterType characterType)
@@ -39,7 +41,7 @@ public class GameCharacterManager : MonoBehaviour
             if (data.characterType == characterType)
             {
                 player.PlayerInit(data);
-                Debug.Log("찾음");
+                
             }
         }
     }
