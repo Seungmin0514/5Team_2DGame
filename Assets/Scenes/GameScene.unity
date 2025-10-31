@@ -951,9 +951,13 @@ MonoBehaviour:
   - {fileID: 8678271090929762135, guid: 37c1ca73f4cacba45aa3e2af30bfc6bb, type: 3}
   initialSections: 3
   sectionWidth: 15
+  sectionGap: 5
   mapSpeed: 10
   spawnDistanceFromCamera: 20
   spawnHeight: 0
+  showDebugLogs: 1
+  showGizmos: 1
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &1061775202
 Transform:
   m_ObjectHideFlags: 0
@@ -1769,6 +1773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4089c5a3cdec57428a3258728e2237a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  skillSpeedMultiplier: 1
   playerRigidbody: {fileID: 1832486540}
   characterData: {fileID: 0}
   gamePlayerControl: {fileID: 0}
