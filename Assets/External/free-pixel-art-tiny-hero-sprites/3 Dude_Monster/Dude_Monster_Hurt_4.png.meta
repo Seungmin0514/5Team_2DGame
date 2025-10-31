@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7779c48f14a6444f93dbb54099fbb7b
-      internalID: 1729803874
+      spriteID: a14f5c0fcfe87254b85f044077818091
+      internalID: 1811817038
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12b26620c60f91b4ea88d10ef0c32892
-      internalID: -1649566840
+      spriteID: 0c2ebe428421c104e824977c5ea76354
+      internalID: 1899937227
       vertices: []
       indices: 
       edges: []
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6ab8786b6b2b3149b4a9e85b279473f
-      internalID: 1752021452
+      spriteID: 765b030c243e1af41b20279a243d4706
+      internalID: -1689839674
       vertices: []
       indices: 
       edges: []
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e74e4121af4742343975e2051ad75765
-      internalID: -1582654894
+      spriteID: 40b07eee3d141dc4b875274844dc67be
+      internalID: -204888908
       vertices: []
       indices: 
       edges: []
@@ -217,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dude_Monster_Hurt_4_0: 1729803874
-      Dude_Monster_Hurt_4_1: -1649566840
-      Dude_Monster_Hurt_4_2: 1752021452
-      Dude_Monster_Hurt_4_3: -1582654894
+      Dude_Monster_Hurt_4_0: 1811817038
+      Dude_Monster_Hurt_4_1: 1899937227
+      Dude_Monster_Hurt_4_2: -1689839674
+      Dude_Monster_Hurt_4_3: -204888908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
