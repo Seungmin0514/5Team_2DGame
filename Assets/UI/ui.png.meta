@@ -328,7 +328,7 @@ TextureImporter:
         width: 2
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,6 +336,48 @@ TextureImporter:
       bones: []
       spriteID: 0fd1fe75cea6d7d4c9dcf20518882574
       internalID: 781640049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white00
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 2, z: 2, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c412804c927c1a43a1564ce835907cc
+      internalID: -99441120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Upper0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 4, z: 3, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503ab3aa583f2ff42bf6a783e8be999d
+      internalID: 974772096
       vertices: []
       indices: 
       edges: []
@@ -352,6 +394,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Panel_Blank00: -380483339
+      Upper0: 974772096
       black00: -133988033
       button_00: -776645699
       button_01: -2070986368
@@ -362,6 +405,7 @@ TextureImporter:
       panel00: 823697190
       pauseButton_00: 1931995357
       pauseButton_01: -1202119121
+      white00: -99441120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
