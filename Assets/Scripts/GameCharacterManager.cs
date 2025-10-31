@@ -33,6 +33,7 @@ public class GameCharacterManager : MonoBehaviour
         SetCharacter(GameDataManager.Instance.selectedCharacter);
     }
 
+    
     public void SetCharacter(CharacterType characterType)
     {
         foreach (CharacterData data in characterData)
