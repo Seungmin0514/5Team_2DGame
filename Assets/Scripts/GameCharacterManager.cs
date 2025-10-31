@@ -34,6 +34,7 @@ public class GameCharacterManager : MonoBehaviour
         SetCharacter(CharacterType.Three);
     }
 
+    
     public void SetCharacter(CharacterType characterType)
     {
         foreach (CharacterData data in characterData)
