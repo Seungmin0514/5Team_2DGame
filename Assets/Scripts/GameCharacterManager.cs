@@ -30,8 +30,7 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-
-        SetCharacter(CharacterType.One);
+        SetCharacter(GameDataManager.Instance.selectedCharacter);
     }
 
     public void SetCharacter(CharacterType characterType)

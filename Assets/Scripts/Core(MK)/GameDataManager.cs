@@ -7,6 +7,7 @@ public class GameDataManager : MonoBehaviour
     public static GameDataManager Instance;
 
     public int coins = 200; // ¿”Ω√∑Œ µ∑ ¡‹
+    public CharacterType selectedCharacter = CharacterType.One;
 
     void Awake()
     {
