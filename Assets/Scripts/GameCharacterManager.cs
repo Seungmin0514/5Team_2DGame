@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 
 public enum CharacterType
@@ -13,6 +14,7 @@ public enum CharacterType
 
 public class GameCharacterManager : MonoBehaviour
 {
+    
     public static GameCharacterManager characterManager;
     public CharacterType characterType { get; private set; }
     [SerializeField] private List<CharacterData> characterData;
@@ -30,7 +32,9 @@ public class GameCharacterManager : MonoBehaviour
     }
     private void Start()
     {
-        SetCharacter(GameDataManager.Instance.selectedCharacter);
+     //  SetCharacter(GameDataManager.Instance.selectedCharacter);
+      
+        SetCharacter(CharacterType.One);
     }
 
     

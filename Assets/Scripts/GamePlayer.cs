@@ -11,8 +11,8 @@ public class GamePlayer : MonoBehaviour
         nomal,
         god,
     }
-    
-    
+
+    private Vector3 PlayerStartPosition;
 
     private bool isIgnoringWall = false;
 
@@ -36,9 +36,13 @@ public class GamePlayer : MonoBehaviour
         gamePlayerControl = GetComponent<GamePlayerControl>();
         gamePlayerAnimationControl = GetComponent<GamePlayerAnimationControl>();
     }
+    private void Start()
+    {
+        PlayerStartPosition = transform.position;
+    }
     private void Update()
     {
-        
+            
             playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
         
     }
@@ -133,8 +137,11 @@ public class GamePlayer : MonoBehaviour
         }
     
     }
-    private void HpCheck()
-    {
+    private void Damaged()
+    { 
+        Hp -= 1;
+        StartCoroutine(IgnoreWall(3f));
+        gamePlayerAnimationControl.DamagedAnimation();
         if (Hp <= 0)
         {
             gamePlayerAnimationControl.DieAnimation();
@@ -147,10 +154,12 @@ public class GamePlayer : MonoBehaviour
     {
         if (collision.CompareTag("Wall"))
         {
-            Hp -= 1;
-            gamePlayerAnimationControl.DamagedAnimation();
-            HpCheck();
-
+            Damaged();
+        }
+        else if (collision.CompareTag("BackWall")){
+            Debug.Log("µÞº®");
+            Damaged();
+            transform.position = PlayerStartPosition;
         }
     }
     public void UseSkill()
