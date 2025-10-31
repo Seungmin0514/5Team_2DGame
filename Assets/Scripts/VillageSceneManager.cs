@@ -8,12 +8,7 @@ public class VillageSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
-    public void ExitGmae()
-    {
-        GameDataManager.Instance.coins += 5;
-        Debug.Log($"5ÄÚÀÎ È¹µæ, ÇöÀç ÄÚÀÎ : {GameDataManager.Instance.coins}");
-        SceneManager.LoadScene("VillageScene");
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
