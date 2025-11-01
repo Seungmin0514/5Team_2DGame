@@ -10,7 +10,7 @@ public class MapGenerator : MonoBehaviour
     public int initialSections = 3;
 
     [Header("Spawn Settings")]
-    public float sectionWidth = 15f;
+    public float sectionWidth = 20f;
     public float sectionGap = 20f;
     public float mapSpeed = 5f; // 기본 속도 (Player가 없을 때 사용)
     public float spawnDistanceFromCamera = 20f;
