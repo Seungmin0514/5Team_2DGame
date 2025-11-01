@@ -10,15 +10,19 @@ public class MapGenerator : MonoBehaviour
     public int initialSections = 3;
 
     [Header("Spawn Settings")]
-    // MODIFIED: sectionWidth를 실제 프리팹 크기에 맞게 조절하세요
     public float sectionWidth = 15f;
-    // MODIFIED: sectionGap을 조절하여 섹션 간격 설정
     public float sectionGap = 20f;
-    public float mapSpeed = 5f;
+    public float mapSpeed = 5f; // 기본 속도 (Player가 없을 때 사용)
     public float spawnDistanceFromCamera = 20f;
     public float spawnHeight = 0f;
 
-    // MODIFIED: 디버그용 설정 추가
+    // 수정: Player와 Difficulty 연동을 위한 참조 추가
+    [Header("Speed Control References")]
+    [Tooltip("Player의 CurrentSpeed를 참조하여 맵 속도 동기화")]
+    public GamePlayer player;
+    [Tooltip("난이도별 속도 배율 적용 (선택사항)")]
+    public DifficultyManager difficultyManager;
+
     [Header("Debug Settings")]
     public bool showDebugLogs = true;
     public bool showGizmos = true;
@@ -26,7 +30,6 @@ public class MapGenerator : MonoBehaviour
 
     private List<GameObject> spawnedSections = new List<GameObject>();
     private Camera mainCamera;
-    // MODIFIED: 마지막 스폰 위치 추적
     private float lastSpawnX = 0f;
 
     void Start()
@@ -38,7 +41,27 @@ public class MapGenerator : MonoBehaviour
             return;
         }
 
-        // MODIFIED: 프리팹 검증 강화
+        // 수정: Player 참조 확인
+        if (player == null)
+        {
+            Debug.LogWarning("[MapGen] GamePlayer가 할당되지 않았습니다! 씬에서 자동 검색합니다.");
+            player = FindObjectOfType<GamePlayer>();
+            if (player == null)
+            {
+                Debug.LogWarning("[MapGen] GamePlayer를 찾을 수 없습니다. 기본 속도를 사용합니다.");
+            }
+        }
+
+        // 수정: DifficultyManager 참조 확인
+        if (difficultyManager == null)
+        {
+            difficultyManager = FindObjectOfType<DifficultyManager>();
+            if (difficultyManager == null)
+            {
+                Debug.LogWarning("[MapGen] DifficultyManager를 찾을 수 없습니다. 난이도 배율이 적용되지 않습니다.");
+            }
+        }
+
         if (firstSectionPrefab == null)
         {
             Debug.LogError("[MapGen] FirstSection 프리팹이 할당되지 않았습니다!");
@@ -51,7 +74,6 @@ public class MapGenerator : MonoBehaviour
             return;
         }
 
-        // MODIFIED: 각 프리팹의 실제 크기 측정 및 로그
         if (showDebugLogs)
         {
             Debug.Log($"[MapGen] === 초기 설정 ===");
@@ -60,15 +82,15 @@ public class MapGenerator : MonoBehaviour
             Debug.Log($"[MapGen] Section Width: {sectionWidth}");
             Debug.Log($"[MapGen] Section Gap: {sectionGap}");
             Debug.Log($"[MapGen] 총 섹션 간격: {sectionWidth + sectionGap}");
+            Debug.Log($"[MapGen] Player 연동: {(player != null ? "ON" : "OFF")}");
+            Debug.Log($"[MapGen] Difficulty 연동: {(difficultyManager != null ? "ON" : "OFF")}");
         }
 
         float startX = 0f;
         lastSpawnX = startX;
 
-        // 첫 번째 섹션 생성
         SpawnFirstSection(startX);
 
-        // MODIFIED: 나머지 섹션들 생성 (간격 적용)
         for (int i = 1; i < initialSections; i++)
         {
             float spawnX = lastSpawnX + sectionWidth + sectionGap;
@@ -86,6 +108,9 @@ public class MapGenerator : MonoBehaviour
     {
         if (mainCamera == null) return;
 
+        // 수정: 모든 섹션의 속도를 Player의 CurrentSpeed와 동기화
+        UpdateAllSectionSpeeds();
+
         GameObject rightmostSection = GetRightmostSection();
 
         if (rightmostSection != null)
@@ -93,7 +118,6 @@ public class MapGenerator : MonoBehaviour
             float rightmostX = rightmostSection.transform.position.x;
             float cameraRightEdge = mainCamera.transform.position.x + spawnDistanceFromCamera;
 
-            // MODIFIED: 새 섹션 생성 조건 확인
             if (rightmostX < cameraRightEdge)
             {
                 float spawnX = rightmostX + sectionWidth + sectionGap;
@@ -103,13 +127,50 @@ public class MapGenerator : MonoBehaviour
         }
         else if (spawnedSections.Count == 0)
         {
-            // MODIFIED: 섹션이 없을 경우 비상 생성
             float spawnX = mainCamera.transform.position.x + spawnDistanceFromCamera;
             SpawnSection(spawnX);
             lastSpawnX = spawnX;
         }
 
         DeleteOldSections();
+    }
+
+    // 수정: Player의 CurrentSpeed를 기반으로 현재 맵 속도 계산
+    private float GetCurrentMapSpeed()
+    {
+        float baseSpeed = mapSpeed;
+
+        // Player의 CurrentSpeed 적용
+        if (player != null)
+        {
+            baseSpeed = player.CurrentSpeed;
+        }
+
+        // DifficultyManager의 속도 배율 적용
+        if (difficultyManager != null)
+        {
+            baseSpeed *= difficultyManager.CurrentSpeedMultiplier;
+        }
+
+        return baseSpeed;
+    }
+
+    // 수정: 모든 섹션의 속도를 실시간으로 업데이트
+    private void UpdateAllSectionSpeeds()
+    {
+        float currentSpeed = GetCurrentMapSpeed();
+
+        foreach (GameObject section in spawnedSections)
+        {
+            if (section != null)
+            {
+                SectionController controller = section.GetComponent<SectionController>();
+                if (controller != null)
+                {
+                    controller.moveSpeed = currentSpeed;
+                }
+            }
+        }
     }
 
     void SpawnSection(float xPosition)
@@ -132,17 +193,16 @@ public class MapGenerator : MonoBehaviour
         Vector3 spawnPosition = new Vector3(xPosition, spawnHeight, 0);
         GameObject newSection = Instantiate(selectedSection, spawnPosition, Quaternion.identity);
 
-        // MODIFIED: 섹션 이름에 인덱스 추가 (디버깅 용이)
         newSection.name = $"{selectedSection.name}_#{spawnedSections.Count}";
 
         SectionController controller = newSection.AddComponent<SectionController>();
-        controller.moveSpeed = mapSpeed;
+        // 수정: 생성 시에도 현재 속도 적용
+        controller.moveSpeed = GetCurrentMapSpeed();
 
         spawnedSections.Add(newSection);
 
         if (showDebugLogs)
         {
-            // MODIFIED: 이전 섹션과의 실제 거리 계산
             float actualGap = 0f;
             if (spawnedSections.Count > 1)
             {
@@ -154,6 +214,7 @@ public class MapGenerator : MonoBehaviour
                       $"  위치: X={xPosition:F1}\n" +
                       $"  이전 섹션과의 거리: {actualGap:F1}\n" +
                       $"  설정된 간격: {sectionWidth + sectionGap:F1}\n" +
+                      $"  현재 속도: {GetCurrentMapSpeed():F2}\n" +
                       $"  총 섹션 수: {spawnedSections.Count}");
         }
     }
@@ -165,7 +226,8 @@ public class MapGenerator : MonoBehaviour
         newSection.name = $"{firstSectionPrefab.name}_#0";
 
         SectionController controller = newSection.AddComponent<SectionController>();
-        controller.moveSpeed = mapSpeed;
+        // 수정: 생성 시에도 현재 속도 적용
+        controller.moveSpeed = GetCurrentMapSpeed();
 
         spawnedSections.Add(newSection);
 
@@ -196,7 +258,6 @@ public class MapGenerator : MonoBehaviour
     {
         if (mainCamera == null) return;
 
-        // MODIFIED: 삭제 거리를 섹션 크기를 고려하여 동적으로 계산
         float deleteDistance = (sectionWidth + sectionGap) * 2f;
         float cameraLeftEdge = mainCamera.transform.position.x - deleteDistance;
 
@@ -224,7 +285,6 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // MODIFIED: 런타임에서 간격 조절 가능한 메서드들
     [ContextMenu("간격 +1 증가")]
     public void IncreaseGap()
     {
@@ -247,13 +307,23 @@ public class MapGenerator : MonoBehaviour
         Debug.Log($"Section Width: {sectionWidth}");
         Debug.Log($"Section Gap: {sectionGap}");
         Debug.Log($"총 간격: {sectionWidth + sectionGap}");
-        Debug.Log($"Map Speed: {mapSpeed}");
+        Debug.Log($"기본 Map Speed: {mapSpeed}");
+        Debug.Log($"현재 Map Speed: {GetCurrentMapSpeed():F2}");
         Debug.Log($"Initial Sections: {initialSections}");
         Debug.Log($"현재 생성된 섹션: {spawnedSections.Count}");
         Debug.Log($"마지막 스폰 X: {lastSpawnX}");
+        Debug.Log($"Player 연동: {(player != null ? "ON" : "OFF")}");
+        if (player != null)
+        {
+            Debug.Log($"  Player CurrentSpeed: {player.CurrentSpeed:F2}");
+        }
+        Debug.Log($"Difficulty 연동: {(difficultyManager != null ? "ON" : "OFF")}");
+        if (difficultyManager != null)
+        {
+            Debug.Log($"  Difficulty Multiplier: {difficultyManager.CurrentSpeedMultiplier:F2}x");
+        }
     }
 
-    // MODIFIED: 섹션 실제 크기 측정 도구
     [ContextMenu("프리팹 크기 측정")]
     public void MeasurePrefabSizes()
     {
@@ -278,7 +348,6 @@ public class MapGenerator : MonoBehaviour
         Debug.Log($"권장 sectionGap: 3~10 사이 값 (원하는 간격에 따라 조절)");
     }
 
-    // MODIFIED: 프리팹의 실제 바운드 계산
     private Bounds CalculatePrefabBounds(GameObject prefab)
     {
         Bounds bounds = new Bounds(prefab.transform.position, Vector3.zero);
@@ -292,14 +361,12 @@ public class MapGenerator : MonoBehaviour
         return bounds;
     }
 
-    // MODIFIED: Scene 뷰에서 섹션 위치 시각화
     private void OnDrawGizmos()
     {
         if (!showGizmos || mainCamera == null) return;
 
         Gizmos.color = gizmoColor;
 
-        // 현재 생성된 섹션들의 위치 표시
         foreach (GameObject section in spawnedSections)
         {
             if (section != null)
@@ -307,7 +374,6 @@ public class MapGenerator : MonoBehaviour
                 Vector3 pos = section.transform.position;
                 Gizmos.DrawWireCube(pos, new Vector3(sectionWidth, 5f, 1f));
 
-                // 섹션 간격 표시
                 Gizmos.DrawLine(
                     new Vector3(pos.x + sectionWidth / 2, pos.y, pos.z),
                     new Vector3(pos.x + sectionWidth / 2 + sectionGap, pos.y, pos.z)
@@ -315,7 +381,6 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // 카메라 스폰 범위 표시
         if (mainCamera != null)
         {
             Gizmos.color = Color.yellow;
