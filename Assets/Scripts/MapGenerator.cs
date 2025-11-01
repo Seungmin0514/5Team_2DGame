@@ -6,7 +6,21 @@ public class MapGenerator : MonoBehaviour
 {
     [Header("Section Settings")]
     public GameObject firstSectionPrefab;
-    public GameObject[] sectionPrefabs;
+
+    // 수정: 난이도별 섹션 프리팹 배열 추가
+    [Header("=== Difficulty Section Prefabs ===")]
+    [Tooltip("Easy 난이도에서 사용할 섹션 프리팹들")]
+    public GameObject[] easySectionPrefabs;
+
+    [Tooltip("Normal 난이도에서 사용할 섹션 프리팹들")]
+    public GameObject[] normalSectionPrefabs;
+
+    [Tooltip("Hard 난이도에서 사용할 섹션 프리팹들")]
+    public GameObject[] hardSectionPrefabs;
+
+    // 수정: 현재 사용 중인 프리팹 배열을 추적
+    private GameObject[] currentSectionPrefabs;
+
     public int initialSections = 3;
 
     [Header("Spawn Settings")]
@@ -52,7 +66,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // 수정: DifficultyManager 참조 확인
+        // 수정: DifficultyManager 참조 확인 및 이벤트 구독
         if (difficultyManager == null)
         {
             difficultyManager = FindObjectOfType<DifficultyManager>();
@@ -62,15 +76,30 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+        // 수정: DifficultyManager 이벤트 구독 - 난이도 변경 시 프리팹 배열 전환
+        if (difficultyManager != null)
+        {
+            difficultyManager.OnDifficultyChanged += OnDifficultyChanged;
+
+            // 초기 난이도에 맞는 프리팹 배열 설정
+            SetCurrentPrefabsByDifficulty(difficultyManager.CurrentLevel);
+        }
+        else
+        {
+            // DifficultyManager가 없으면 Easy 프리팹 사용
+            currentSectionPrefabs = easySectionPrefabs;
+        }
+
         if (firstSectionPrefab == null)
         {
             Debug.LogError("[MapGen] FirstSection 프리팹이 할당되지 않았습니다!");
             return;
         }
 
-        if (sectionPrefabs == null || sectionPrefabs.Length == 0)
+        // 수정: 현재 사용 중인 프리팹 배열 확인
+        if (currentSectionPrefabs == null || currentSectionPrefabs.Length == 0)
         {
-            Debug.LogError("[MapGen] Section 프리팹이 할당되지 않았습니다!");
+            Debug.LogError("[MapGen] 현재 난이도의 Section 프리팹이 할당되지 않았습니다!");
             return;
         }
 
@@ -78,7 +107,8 @@ public class MapGenerator : MonoBehaviour
         {
             Debug.Log($"[MapGen] === 초기 설정 ===");
             Debug.Log($"[MapGen] FirstSection: {firstSectionPrefab.name}");
-            Debug.Log($"[MapGen] Section 프리팹 개수: {sectionPrefabs.Length}");
+            Debug.Log($"[MapGen] 현재 난이도: {(difficultyManager != null ? difficultyManager.CurrentLevel.ToString() : "Unknown")}");
+            Debug.Log($"[MapGen] 현재 사용 중인 Section 프리팹 개수: {currentSectionPrefabs.Length}");
             Debug.Log($"[MapGen] Section Width: {sectionWidth}");
             Debug.Log($"[MapGen] Section Gap: {sectionGap}");
             Debug.Log($"[MapGen] 총 섹션 간격: {sectionWidth + sectionGap}");
@@ -135,6 +165,46 @@ public class MapGenerator : MonoBehaviour
         DeleteOldSections();
     }
 
+    // 수정: 난이도 변경 이벤트 핸들러 추가
+    private void OnDifficultyChanged(DifficultyData newDifficulty)
+    {
+        if (newDifficulty == null) return;
+
+        SetCurrentPrefabsByDifficulty(newDifficulty.level);
+
+        if (showDebugLogs)
+        {
+            Debug.Log($"[MapGen] ★★★ 난이도 변경됨! ★★★");
+            Debug.Log($"[MapGen] 새로운 난이도: {newDifficulty.level}");
+            Debug.Log($"[MapGen] 사용할 프리팹 개수: {currentSectionPrefabs.Length}");
+            Debug.Log($"[MapGen] 속도 배율: {newDifficulty.speedMultiplier}x");
+            Debug.Log($"[MapGen] 이후 생성되는 섹션부터 {newDifficulty.level} 프리팹 사용");
+        }
+    }
+
+    // 수정: 난이도에 따라 사용할 프리팹 배열 설정
+    private void SetCurrentPrefabsByDifficulty(DifficultyData.DifficultyLevel level)
+    {
+        switch (level)
+        {
+            case DifficultyData.DifficultyLevel.Easy:
+                currentSectionPrefabs = easySectionPrefabs;
+                break;
+            case DifficultyData.DifficultyLevel.Normal:
+                currentSectionPrefabs = normalSectionPrefabs;
+                break;
+            case DifficultyData.DifficultyLevel.Hard:
+                currentSectionPrefabs = hardSectionPrefabs;
+                break;
+        }
+
+        // 프리팹 배열 검증
+        if (currentSectionPrefabs == null || currentSectionPrefabs.Length == 0)
+        {
+            Debug.LogError($"[MapGen] {level} 난이도의 프리팹 배열이 비어있습니다!");
+        }
+    }
+
     // 수정: Player의 CurrentSpeed를 기반으로 현재 맵 속도 계산
     private float GetCurrentMapSpeed()
     {
@@ -175,14 +245,15 @@ public class MapGenerator : MonoBehaviour
 
     void SpawnSection(float xPosition)
     {
-        if (sectionPrefabs.Length == 0)
+        // 수정: currentSectionPrefabs 사용 (난이도별로 다른 프리팹 배열)
+        if (currentSectionPrefabs == null || currentSectionPrefabs.Length == 0)
         {
-            Debug.LogError("[MapGen] Section 프리팹이 없습니다!");
+            Debug.LogError("[MapGen] 현재 난이도의 Section 프리팹이 없습니다!");
             return;
         }
 
-        int randomIndex = Random.Range(0, sectionPrefabs.Length);
-        GameObject selectedSection = sectionPrefabs[randomIndex];
+        int randomIndex = Random.Range(0, currentSectionPrefabs.Length);
+        GameObject selectedSection = currentSectionPrefabs[randomIndex];
 
         if (selectedSection == null)
         {
@@ -210,7 +281,11 @@ public class MapGenerator : MonoBehaviour
                 actualGap = xPosition - prevSection.transform.position.x;
             }
 
-            Debug.Log($"[MapGen] 섹션 생성: {selectedSection.name} (프리팹 {randomIndex + 1}/{sectionPrefabs.Length})\n" +
+            // 수정: 현재 난이도 정보 추가
+            string difficultyInfo = difficultyManager != null ? difficultyManager.CurrentLevel.ToString() : "Unknown";
+
+            Debug.Log($"[MapGen] 섹션 생성: {selectedSection.name} (프리팹 {randomIndex + 1}/{currentSectionPrefabs.Length})\n" +
+                      $"  난이도: {difficultyInfo}\n" +
                       $"  위치: X={xPosition:F1}\n" +
                       $"  이전 섹션과의 거리: {actualGap:F1}\n" +
                       $"  설정된 간격: {sectionWidth + sectionGap:F1}\n" +
@@ -285,6 +360,15 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    // 수정: OnDestroy에서 이벤트 구독 해제
+    private void OnDestroy()
+    {
+        if (difficultyManager != null)
+        {
+            difficultyManager.OnDifficultyChanged -= OnDifficultyChanged;
+        }
+    }
+
     [ContextMenu("간격 +1 증가")]
     public void IncreaseGap()
     {
@@ -303,7 +387,11 @@ public class MapGenerator : MonoBehaviour
     public void PrintCurrentSettings()
     {
         Debug.Log("=== MapGenerator 현재 설정 ===");
-        Debug.Log($"프리팹 개수: {sectionPrefabs.Length}");
+        Debug.Log($"현재 난이도: {(difficultyManager != null ? difficultyManager.CurrentLevel.ToString() : "Unknown")}");
+        Debug.Log($"현재 프리팹 개수: {(currentSectionPrefabs != null ? currentSectionPrefabs.Length : 0)}");
+        Debug.Log($"Easy 프리팹 개수: {(easySectionPrefabs != null ? easySectionPrefabs.Length : 0)}");
+        Debug.Log($"Normal 프리팹 개수: {(normalSectionPrefabs != null ? normalSectionPrefabs.Length : 0)}");
+        Debug.Log($"Hard 프리팹 개수: {(hardSectionPrefabs != null ? hardSectionPrefabs.Length : 0)}");
         Debug.Log($"Section Width: {sectionWidth}");
         Debug.Log($"Section Gap: {sectionGap}");
         Debug.Log($"총 간격: {sectionWidth + sectionGap}");
@@ -335,12 +423,43 @@ public class MapGenerator : MonoBehaviour
             Debug.Log($"FirstSection ({firstSectionPrefab.name}): Width = {bounds.size.x}");
         }
 
-        for (int i = 0; i < sectionPrefabs.Length; i++)
+        // 수정: 난이도별 프리팹 크기 측정
+        Debug.Log("\n--- Easy Prefabs ---");
+        if (easySectionPrefabs != null)
         {
-            if (sectionPrefabs[i] != null)
+            for (int i = 0; i < easySectionPrefabs.Length; i++)
             {
-                Bounds bounds = CalculatePrefabBounds(sectionPrefabs[i]);
-                Debug.Log($"Section[{i}] ({sectionPrefabs[i].name}): Width = {bounds.size.x}");
+                if (easySectionPrefabs[i] != null)
+                {
+                    Bounds bounds = CalculatePrefabBounds(easySectionPrefabs[i]);
+                    Debug.Log($"Easy Section[{i}] ({easySectionPrefabs[i].name}): Width = {bounds.size.x}");
+                }
+            }
+        }
+
+        Debug.Log("\n--- Normal Prefabs ---");
+        if (normalSectionPrefabs != null)
+        {
+            for (int i = 0; i < normalSectionPrefabs.Length; i++)
+            {
+                if (normalSectionPrefabs[i] != null)
+                {
+                    Bounds bounds = CalculatePrefabBounds(normalSectionPrefabs[i]);
+                    Debug.Log($"Normal Section[{i}] ({normalSectionPrefabs[i].name}): Width = {bounds.size.x}");
+                }
+            }
+        }
+
+        Debug.Log("\n--- Hard Prefabs ---");
+        if (hardSectionPrefabs != null)
+        {
+            for (int i = 0; i < hardSectionPrefabs.Length; i++)
+            {
+                if (hardSectionPrefabs[i] != null)
+                {
+                    Bounds bounds = CalculatePrefabBounds(hardSectionPrefabs[i]);
+                    Debug.Log($"Hard Section[{i}] ({hardSectionPrefabs[i].name}): Width = {bounds.size.x}");
+                }
             }
         }
 
