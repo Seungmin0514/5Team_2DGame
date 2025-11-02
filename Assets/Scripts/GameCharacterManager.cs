@@ -34,7 +34,7 @@ public class GameCharacterManager : MonoBehaviour
     {
      //  SetCharacter(GameDataManager.Instance.selectedCharacter);
       
-        SetCharacter(CharacterType.One);
+        SetCharacter(CharacterType.Three);
     }
 
     
