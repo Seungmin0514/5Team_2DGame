@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 665731000}
   - component: {fileID: 665731001}
   m_Layer: 8
-  m_Name: Square (1)
+  m_Name: Backwall
   m_TagString: BackWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 713996819}
   - component: {fileID: 713996817}
   m_Layer: 8
-  m_Name: Square
+  m_Name: Backwall
   m_TagString: BackWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
