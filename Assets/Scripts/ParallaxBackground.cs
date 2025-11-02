@@ -26,7 +26,14 @@ public class ParallaxBackground : MonoBehaviour
     public float frontLayerSpeed = 0.8f;    // 가장 빠름
 
     [Header("참조 설정")]
-    public float baseSpeed = 5f;  // 맵의 기본 이동 속도 (MapGenerator의 mapSpeed와 동일하게 설정)
+    public float baseSpeed = 5f;  // 기본 이동 속도 (Player가 없을 때 사용)
+
+    // 수정: Player와 Difficulty 연동을 위한 참조 추가
+    [Header("Speed Control References")]
+    [Tooltip("Player의 CurrentSpeed를 참조하여 배경 속도 동기화")]
+    public GamePlayer player;
+    [Tooltip("난이도별 속도 배율 적용 (선택사항)")]
+    public DifficultyManager difficultyManager;
 
     private Camera mainCamera;
 
@@ -36,41 +43,86 @@ public class ParallaxBackground : MonoBehaviour
 
         if (mainCamera == null)
         {
-            Debug.LogError("메인 카메라를 찾을 수 없습니다!");
+            Debug.LogError("[Parallax] 메인 카메라를 찾을 수 없습니다!");
             return;
         }
 
+        // 수정: Player 참조 확인
+        if (player == null)
+        {
+            Debug.LogWarning("[Parallax] GamePlayer가 할당되지 않았습니다! 씬에서 자동 검색합니다.");
+            player = FindObjectOfType<GamePlayer>();
+            if (player == null)
+            {
+                Debug.LogWarning("[Parallax] GamePlayer를 찾을 수 없습니다. 기본 속도를 사용합니다.");
+            }
+        }
+
+        // 수정: DifficultyManager 참조 확인
+        if (difficultyManager == null)
+        {
+            difficultyManager = FindObjectOfType<DifficultyManager>();
+            if (difficultyManager == null)
+            {
+                Debug.LogWarning("[Parallax] DifficultyManager를 찾을 수 없습니다. 난이도 배율이 적용되지 않습니다.");
+            }
+        }
+
         // 수정: 레이어 null 체크
-        if (backLayer == null) Debug.LogWarning("Back Layer가 할당되지 않았습니다!");
-        if (middleLayer == null) Debug.LogWarning("Middle Layer가 할당되지 않았습니다!");
-        if (frontLayer == null) Debug.LogWarning("Front Layer가 할당되지 않았습니다!");
+        if (backLayer == null) Debug.LogWarning("[Parallax] Back Layer가 할당되지 않았습니다!");
+        if (middleLayer == null) Debug.LogWarning("[Parallax] Middle Layer가 할당되지 않았습니다!");
+        if (frontLayer == null) Debug.LogWarning("[Parallax] Front Layer가 할당되지 않았습니다!");
+
+        Debug.Log($"[Parallax] 초기화 완료 - Player 연동: {(player != null ? "ON" : "OFF")}, Difficulty 연동: {(difficultyManager != null ? "ON" : "OFF")}");
     }
 
     void Update()
     {
         if (mainCamera == null) return;
 
-        // 수정: 시간 기반으로 배경을 왼쪽으로 이동
+        // 수정: Player의 CurrentSpeed를 기반으로 현재 배경 속도 계산
+        float currentSpeed = GetCurrentBackgroundSpeed();
+
         float deltaTime = Time.deltaTime;
 
-        // 각 레이어를 다른 속도로 왼쪽으로 이동
+        // 각 레이어 다른 속도로 왼쪽으로 이동
         if (backLayer != null)
         {
-            backLayer.position += Vector3.left * baseSpeed * backLayerSpeed * deltaTime;
-            CheckAndRepositionLayer(backLayer); // 수정: 매 프레임 체크
+            backLayer.position += Vector3.left * currentSpeed * backLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(backLayer);
         }
 
         if (middleLayer != null)
         {
-            middleLayer.position += Vector3.left * baseSpeed * middleLayerSpeed * deltaTime;
-            CheckAndRepositionLayer(middleLayer); // 수정: 매 프레임 체크
+            middleLayer.position += Vector3.left * currentSpeed * middleLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(middleLayer);
         }
 
         if (frontLayer != null)
         {
-            frontLayer.position += Vector3.left * baseSpeed * frontLayerSpeed * deltaTime;
-            CheckAndRepositionLayer(frontLayer); // 수정: 매 프레임 체크
+            frontLayer.position += Vector3.left * currentSpeed * frontLayerSpeed * deltaTime;
+            CheckAndRepositionLayer(frontLayer);
         }
+    }
+
+    // 수정: Player의 CurrentSpeed를 기반으로 현재 배경 속도 계산
+    private float GetCurrentBackgroundSpeed()
+    {
+        float speed = baseSpeed;
+
+        // Player의 CurrentSpeed 적용
+        if (player != null)
+        {
+            speed = player.CurrentSpeed;
+        }
+
+        // DifficultyManager의 속도 배율 적용
+        if (difficultyManager != null)
+        {
+            speed *= difficultyManager.CurrentSpeedMultiplier;
+        }
+
+        return speed;
     }
 
     // 수정: 레이어의 자식 스프라이트들을 체크하고 재배치
@@ -123,7 +175,7 @@ public class ParallaxBackground : MonoBehaviour
                         child.position.z
                     );
 
-                    Debug.Log($"{child.name} 재배치 완료! 새 위치: {child.position.x}");
+                    Debug.Log($"[Parallax] {child.name} 재배치 완료! 새 위치: {child.position.x}");
                 }
             }
         }
