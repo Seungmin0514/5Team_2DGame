@@ -69,6 +69,16 @@ public class GamePlayer : MonoBehaviour
         skillSpeedMultiplier /= multiplier;
         
     }
+    public IEnumerator SizeChange(float multiplier, float duration)
+    {
+        gameObject.transform.localScale = new Vector3(multiplier, multiplier, multiplier);
+
+
+        yield return new WaitForSeconds(duration);
+
+        gameObject.transform.localScale = Vector3.one;
+
+    }
     public IEnumerator IgnoreWall(float duration)
     {
         if (isIgnoringWall) yield break; 
