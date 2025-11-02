@@ -20,6 +20,7 @@ public class GamePlayer : MonoBehaviour
     public int Hp { get; private set; }
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
+    private float Cooldown =0f;
 
     public float CurrentSpeed => moveSpeed * skillSpeedMultiplier;
     [SerializeField] Rigidbody2D playerRigidbody;
@@ -42,8 +43,9 @@ public class GamePlayer : MonoBehaviour
     }
     private void Update()
     {
-            
-            playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
+        if (skill != null)
+            Cooldown += Time.deltaTime;
+        playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
         
     }
 
@@ -174,6 +176,7 @@ public class GamePlayer : MonoBehaviour
     }
     public void UseSkill()
     {
+        if (Cooldown < characterData.cooldown) return;
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
     }
