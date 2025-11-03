@@ -20,10 +20,9 @@ public class GameActoinManager : MonoBehaviour
         scanObject = scanObj;
         ObjectData objData = scanObj.GetComponent<ObjectData>();
         if(objData.id == 200)
-        {   
-            
+        {
+            isAction = false;
             LoadSceneManager.Instance.EnterGame();
-            
             return;
         }
         Talk(objData.id, objData.isNpc);
