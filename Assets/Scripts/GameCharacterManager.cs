@@ -15,27 +15,22 @@ public enum CharacterType
 public class GameCharacterManager : MonoBehaviour
 {
     
-    public static GameCharacterManager characterManager;
+    public static GameCharacterManager Instance;
     public CharacterType characterType { get; private set; }
     [SerializeField] private List<CharacterData> characterData;
     [SerializeField] private GamePlayer player;
 
     private void Awake()
     {
-        if (characterManager != null)
+        if (Instance != null)
         {
             Destroy(this);
             return;
         }
-        characterManager = this;
-
+        Instance = this;
+       
     }
-    private void Start()
-    {
-    //  SetCharacter(GameDataManager.Instance.selectedCharacter);
-      
-        SetCharacter(CharacterType.One);
-    }
+    
 
     
     public void SetCharacter(CharacterType characterType)
