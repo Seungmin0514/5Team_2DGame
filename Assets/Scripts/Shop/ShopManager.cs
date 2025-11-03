@@ -12,7 +12,7 @@ public class ShopManager : MonoBehaviour
     public SkinCatalog catalog;
     public Transform itemListParent;      
     public GameObject itemSlotPrefab;     
-    public Text coinsText;
+    public TMP_Text coinsText;
     public PurchaseDialog purchaseDialog;
 
     [Header("Shop Listing")]

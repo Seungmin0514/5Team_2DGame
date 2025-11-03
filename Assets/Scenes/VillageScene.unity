@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1104968005}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: ToggleShop
         m_Mode: 1
@@ -2371,31 +2371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cfcc9e2bf59d54aaec9fe6bfc5793b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skins:
-  - skinId: Basic
-    displayName: "\uAE30\uBCF8 \uCE90\uB9AD\uD130"
-    portrait: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
-    silhouette: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
-    price: 0
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 9100000, guid: cb2a2342e32308c469bdd75fe3a2d4a4, type: 2}
-    singleSprite: {fileID: 0}
-  - skinId: PinkMonster
-    displayName: "\uD551\uD06C\uBAAC\uC2A4\uD130"
-    portrait: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
-    silhouette: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
-    price: 500
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 9100000, guid: 302c107bacc426b41be1d093ed801207, type: 2}
-    singleSprite: {fileID: 0}
-  - skinId: DudeMonster
-    displayName: "\uBA4D\uCCAD\uC774"
-    portrait: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
-    silhouette: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
-    price: 500
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 9100000, guid: 9e3a2f31e1838924bbc2b929cfd0f492, type: 2}
-    singleSprite: {fileID: 0}
+  skins: []
 --- !u!1 &533758883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,9 +3037,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelRoot: {fileID: 604755905}
   portrait: {fileID: 1275367624}
-  titleText: {fileID: 1404118315}
-  priceText: {fileID: 1739310408}
-  warningText: {fileID: 984242608}
+  titleText: {fileID: 0}
+  priceText: {fileID: 0}
+  warningText: {fileID: 0}
   buyButton: {fileID: 201483550}
   cancelButton: {fileID: 1097046012}
 --- !u!1 &655505437
@@ -7199,16 +7175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91fd8e40f72e3c64ca58b4b99282eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Catalog: {fileID: 530083662}
-  saleSkinIds:
-  - Basic
-  - PinkMonster
-  - DudeMonster
   panelRoot: {fileID: 1104968003}
+  catalog: {fileID: 1143627499}
   itemListParent: {fileID: 1826611415}
   itemSlotPrefab: {fileID: 2207141724045325654, guid: e90e31710eefc2e468ae429bd5eef264, type: 3}
-  coinsText: {fileID: 1968601434}
-  purchaseDialog: {fileID: 604755907}
+  coinsText: {fileID: 0}
+  purchaseDialog: {fileID: 0}
+  saleSkinIds: []
 --- !u!1 &1143627498
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,31 +7211,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44cfcc9e2bf59d54aaec9fe6bfc5793b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Skins:
+  skins:
   - skinId: two
     displayName: "\uCE90\uB9AD\uD1301"
+    price: 0
     portrait: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
     silhouette: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
-    price: 0
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 0}
-    singleSprite: {fileID: 0}
-  - skinId: 
-    displayName: 
-    portrait: {fileID: 0}
-    silhouette: {fileID: 0}
-    price: 0
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 0}
-    singleSprite: {fileID: 0}
-  - skinId: 
-    displayName: 
-    portrait: {fileID: 0}
-    silhouette: {fileID: 0}
-    price: 0
-    animatorOverride: {fileID: 0}
-    animatorController: {fileID: 0}
-    singleSprite: {fileID: 0}
+    type: 1
+  - skinId: one
+    displayName: "\uCE90\uB9AD\uD1302"
+    price: 100
+    portrait: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
+    silhouette: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
+    type: 0
+  - skinId: three
+    displayName: "\uCE90\uB9AD\uD1303"
+    price: 200
+    portrait: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
+    silhouette: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
+    type: 2
 --- !u!4 &1143627500
 Transform:
   m_ObjectHideFlags: 0
@@ -10166,13 +10133,13 @@ SceneRoots:
   - {fileID: 1648052033}
   - {fileID: 2033671808}
   - {fileID: 595844965}
-  - {fileID: 1978048325}
   - {fileID: 663517274}
   - {fileID: 571321848}
   - {fileID: 655505442}
   - {fileID: 1775051668}
   - {fileID: 1257294710}
   - {fileID: 1423756949}
+  - {fileID: 1978048325}
   - {fileID: 1143627500}
   - {fileID: 6213804658956403741}
   - {fileID: 1955981303}
