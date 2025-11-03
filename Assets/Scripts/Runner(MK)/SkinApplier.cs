@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class SkinApplier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SkinCatalog catalog;
+    public Animator targetAnimator;         //에니메이터 기반이면 설정
+    public SpriteRenderer targetSprite;     //스프라이트 기반이면 설정
+
+    void OnEnable()
     {
-        
+        ApplyNow();
+        GameSignals.OnSkinEquipped += OnSkinEquipped;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void OnDisable()
     {
-        
+        GameSignals.OnSkinEquipped -= OnSkinEquipped;
+    }
+
+
+    void OnSkinEquipped(string _) => ApplyNow();
+
+
+    public void ApplyNow()
+    {
+        if (catalog == null) catalog = SkinCatalog.Instance;
+        string id = GameDataManager.Instance.GetEquipped();
+        var cfg = catalog ? catalog.Get(id) : null;
+        if (cfg == null) return;
+
+
+        if (targetAnimator)
+        {
+            if (cfg.animatorOverride)
+                targetAnimator.runtimeAnimatorController = cfg.animatorOverride;
+            else if (cfg.animatorController)
+                targetAnimator.runtimeAnimatorController = cfg.animatorController;
+        }
+        if (targetSprite && cfg.singleSprite)
+            targetSprite.sprite = cfg.singleSprite;
     }
 }
+

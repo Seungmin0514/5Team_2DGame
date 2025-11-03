@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkinConfig : MonoBehaviour
+[System.Serializable]
+public class SkinConfig
 {
     [Header("ID & Display")]
     public string skinId;
@@ -11,10 +12,10 @@ public class SkinConfig : MonoBehaviour
     public Sprite silhouette;
 
     [Header("Price")]
-    public int Price;
+    public int price;
 
     [Header("Apply (필요한 것만)")]
     public AnimatorOverrideController animatorOverride;
-    public RuntimeAnimatorController AnimatorController;
+    public RuntimeAnimatorController animatorController;
     public Sprite singleSprite;
 }
