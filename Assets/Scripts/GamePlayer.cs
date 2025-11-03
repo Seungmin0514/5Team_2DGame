@@ -157,6 +157,7 @@ public class GamePlayer : MonoBehaviour
         if (Hp <= 0)
         {
             gamePlayerAnimationControl.DieAnimation();
+            RunGameManager.Instance.EndGame();
             Debug.Log("die");
             
             
