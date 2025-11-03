@@ -151,9 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe1f2a4ae735114b927892b7de0cd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopPanel: {fileID: 0}
-  inventoryPanel: {fileID: 0}
-  questPanel: {fileID: 0}
 --- !u!4 &79993476
 Transform:
   m_ObjectHideFlags: 0
@@ -357,6 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd22a99439cd843abcd0e4b87bbb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedCharacter: 2
   defaultCoins: 200
 --- !u!4 &179418139
 Transform:
@@ -2779,6 +2777,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &768749501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768749503}
+  - component: {fileID: 768749502}
+  m_Layer: 0
+  m_Name: VillageSceneManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &768749502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768749501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b646148e83098646815d2d856b13155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &768749503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768749501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.543133, y: -1.8138964, z: -0.031025795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963964739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,6 +5893,7 @@ MonoBehaviour:
   talkPanel: {fileID: 1978048321}
   portraitImg: {fileID: 992635763}
   isAction: 0
+  villageSceneManager: {fileID: 768749502}
 --- !u!4 &2033671808
 Transform:
   m_ObjectHideFlags: 0
@@ -6102,3 +6145,4 @@ SceneRoots:
   - {fileID: 179418139}
   - {fileID: 1539635894}
   - {fileID: 79993476}
+  - {fileID: 768749503}
