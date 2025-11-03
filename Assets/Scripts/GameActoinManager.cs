@@ -28,6 +28,24 @@ public class GameActoinManager : MonoBehaviour
         }
         Talk(objData.id, objData.isNpc);
         talkPanel.SetActive(isAction);
+        if (objData.id == 400 && isAction == false)
+        {
+            Player player = FindAnyObjectByType<Player>();
+            if(player != null)
+            {
+                Vector3 newPosition = new Vector3(-53.63f, 0.5f, 0f);
+                player.transform.position = newPosition;
+            }
+        }
+        if(objData.id ==500&&isAction == false)
+        {
+            Player player = FindAnyObjectByType<Player>();
+            if(player != null)
+            {
+                Vector3 newPosition = new Vector3(-2.46f, -2.7f, 0f);
+                player.transform.position = newPosition;
+            }
+        }
     }
     void Talk(int id, bool isNpc)
     {

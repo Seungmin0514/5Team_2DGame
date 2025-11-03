@@ -20,10 +20,14 @@ public class TalkManager : MonoBehaviour
         talkData.Add(100, new string[] { "살거 아니면 시간 낭비하지마.:0"});//상점
         talkData.Add(200, new string[] { "게임으로 넘어가는 포탈입니다." });//얘는 표시 안됨(게임포탈)
         talkData.Add(300, new string[] { "캐릭터 바꿔볼래?:0", "아님 말고:1" });
+        talkData.Add(400, new string[] { "혹시... 코딩 좋아하니?:0","게임 만드는데 일손이 부족해서 말이야:1" });
+        talkData.Add(500, new string[] { "코딩해야지...", "설마 GPT 돌리는거야?", "잠은 사치야", "탈출을 시도했다.","....간신히 탈출했다." });
 
         portraitData.Add(100 + 0, portraitArr[0]);
         portraitData.Add(300 + 0, portraitArr[1]);
         portraitData.Add(300 +1,portraitArr[2]);
+        portraitData.Add(400 + 0, portraitArr[3]);
+        portraitData.Add(400+1,portraitArr[4]);
     }
     public string GetTalk(int id, int talkIndex)
     {
