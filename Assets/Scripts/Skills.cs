@@ -4,7 +4,7 @@ using UnityEngine;
 public interface ISkill
 {
     void UseSkill(GamePlayer player);
-
+    AudioClip SkillClip { get; }
     
 }
 
@@ -12,22 +12,28 @@ public interface ISkill
 
 public class OneSkill : ISkill
 {
+    private readonly AudioClip clip;
+    public OneSkill(AudioClip skillClip)
+    {
+        this.clip = skillClip;
+    }
+    public AudioClip SkillClip => clip;
     public void UseSkill(GamePlayer player)
     {
         Debug.Log("SkillOne");
 
         player.StartCoroutine(player.SizeChange(1.5f, 3f));
         player.StartCoroutine(player.SpeedBoost(1.1f, 3f));
-
-
-
-
-    }
-    
-    
+    } 
 }
 public class TwoSkill : ISkill
 {
+    private readonly AudioClip clip;
+    public TwoSkill(AudioClip skillClip)
+    {
+        this.clip = skillClip;
+    }
+    public  AudioClip SkillClip => clip;
     public void UseSkill(GamePlayer player)
     {
         if (player.Hp >= player.characterData.maxHp)
@@ -42,6 +48,12 @@ public class TwoSkill : ISkill
 }
 public class ThreeSkill : ISkill
 {
+    private readonly AudioClip clip;
+    public ThreeSkill(AudioClip skillClip)
+    {
+        this.clip = skillClip;
+    }
+    public AudioClip SkillClip => clip;
     public void UseSkill(GamePlayer player)
     {
         Debug.Log("스피드 스킬 사용!");
