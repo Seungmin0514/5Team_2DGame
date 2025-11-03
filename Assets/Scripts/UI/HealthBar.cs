@@ -69,5 +69,13 @@ public class HealthBar : MonoBehaviour
     private void UpdateHP(int hp)
     {
         hpSlider.value = hp;
+
+        for (int i = 0; i < dividers.Count; i++)
+        {
+            if (i >= hp)
+                dividers[i].SetActive(false);
+            else
+                dividers[i].SetActive(true);
+        }
     }
 }
