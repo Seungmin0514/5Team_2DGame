@@ -13,16 +13,17 @@ public class GameActoinManager : MonoBehaviour
     public GameObject talkPanel;
     public Image portraitImg;
     public bool isAction;
-    public LoadSceneManager villageSceneManager;
+    
     public void Action(GameObject scanObj)
     {
         isAction = true;
         scanObject = scanObj;
         ObjectData objData = scanObj.GetComponent<ObjectData>();
         if(objData.id == 200)
-        {
-            villageSceneManager.EnterGame();
-            GameCharacterManager.Instance.SetCharacter(GameDataManager.Instance.selectedCharacter);
+        {   
+            
+            LoadSceneManager.Instance.EnterGame();
+            
             return;
         }
         Talk(objData.id, objData.isNpc);

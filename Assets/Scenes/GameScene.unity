@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gold: 0
+  player: {fileID: 1832486538}
 --- !u!4 &938337224
 Transform:
   m_ObjectHideFlags: 0

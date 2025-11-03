@@ -28,7 +28,7 @@ public class GameCharacterManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(Instance);
+       
     }
     
 

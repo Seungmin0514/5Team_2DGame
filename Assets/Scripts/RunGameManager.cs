@@ -6,7 +6,7 @@ public class RunGameManager : MonoBehaviour
 {
     public static RunGameManager Instance;
     public float gold;
-    GamePlayer player;
+    public GamePlayer player;
     // Start is called before the first frame update
     private void Awake()
     {

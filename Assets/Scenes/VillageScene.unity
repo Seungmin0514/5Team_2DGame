@@ -2788,7 +2788,7 @@ GameObject:
   - component: {fileID: 768749503}
   - component: {fileID: 768749502}
   m_Layer: 0
-  m_Name: VillageSceneManger
+  m_Name: LoadSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 768749501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b646148e83098646815d2d856b13155, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c6ee2c81eb436249914c4d532121052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &768749503
@@ -2816,55 +2816,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.543133, y: -1.8138964, z: -0.031025795}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &828153354
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 828153356}
-  - component: {fileID: 828153355}
-  m_Layer: 0
-  m_Name: GameCharacterManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &828153355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828153354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bae5c0035af7d44aa980722e55cd07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterData:
-  - {fileID: 11400000, guid: 9e2096cb923c98047b0dde5e1531f544, type: 2}
-  - {fileID: 11400000, guid: ce30d3a8c477122469808a30208e4512, type: 2}
-  - {fileID: 11400000, guid: c99f3360da0a4ae46b5826769bfa0dcf, type: 2}
-  player: {fileID: 0}
---- !u!4 &828153356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828153354}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8933432, y: -0.47556746, z: -0.011269747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5942,7 +5893,6 @@ MonoBehaviour:
   talkPanel: {fileID: 1978048321}
   portraitImg: {fileID: 992635763}
   isAction: 0
-  villageSceneManager: {fileID: 768749502}
 --- !u!4 &2033671808
 Transform:
   m_ObjectHideFlags: 0
@@ -6195,4 +6145,3 @@ SceneRoots:
   - {fileID: 1539635894}
   - {fileID: 79993476}
   - {fileID: 768749503}
-  - {fileID: 828153356}

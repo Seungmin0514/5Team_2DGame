@@ -16,9 +16,15 @@ public class LoadSceneManager : MonoBehaviour
             
         Instance = this;
     }
-    
+
+    private void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GameCharacterManager.Instance.SetCharacter(GameDataManager.Instance.selectedCharacter);
+        SceneManager.sceneLoaded -= OnGameSceneLoaded;
+    }
     public void EnterGame()
     {
+        SceneManager.sceneLoaded += OnGameSceneLoaded;
         SceneManager.LoadScene("GameScene");
     }
 
