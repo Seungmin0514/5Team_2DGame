@@ -7,6 +7,7 @@ public class RunGameManager : MonoBehaviour
     public static RunGameManager Instance;
     public float gold;
     public GamePlayer player;
+    public GameObject resultPopup;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class RunGameManager : MonoBehaviour
     public void EndGame()
     {
         GameDataManager.Instance.AddCoins((int)gold);
-        //ui ³ª¿À°Ô
+        resultPopup.SetActive(true);
         
         
     }
