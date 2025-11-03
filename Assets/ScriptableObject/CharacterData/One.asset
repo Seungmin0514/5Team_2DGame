@@ -23,3 +23,5 @@ MonoBehaviour:
   skills: 0
   skillName: Giant
   cooldown: 4
+  skillIcon: {fileID: -518628026, guid: e827bcdb03603c54893544583dcd3b56, type: 3}
+  skillIconDisabled: {fileID: -1047816500, guid: e827bcdb03603c54893544583dcd3b56, type: 3}

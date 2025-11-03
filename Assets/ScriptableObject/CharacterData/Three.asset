@@ -23,3 +23,5 @@ MonoBehaviour:
   skills: 2
   skillName: Heal
   cooldown: 0
+  skillIcon: {fileID: -1689199819, guid: e827bcdb03603c54893544583dcd3b56, type: 3}
+  skillIconDisabled: {fileID: 680958974, guid: e827bcdb03603c54893544583dcd3b56, type: 3}

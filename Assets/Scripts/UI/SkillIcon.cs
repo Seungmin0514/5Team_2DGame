@@ -6,12 +6,33 @@ using UnityEngine.Events;
 public class SkillIcon : MonoBehaviour
 {
     [Header("UI References")]
+    public Image skillIcon;
     public Image cooldownOverlay;
 
     private float coolTime;
     private float maxCoolTime;
     private Coroutine cooltimeRoutine;
 
+    private void Start()
+    {
+        var type = GameDataManager.Instance.selectedCharacter;
+        Debug.Log("캐릭터 타입: " + type);
+        switch (type)
+        {
+            case CharacterType.One:
+                //skillIcon.sprite = ;
+                //cooldownOverlay.sprite = ;
+                break;
+            case CharacterType.Two:
+                //skillIcon.sprite = ;
+                //cooldownOverlay.sprite = ;
+                break;
+            case CharacterType.Three:
+                //skillIcon.sprite = ;
+                //cooldownOverlay.sprite = ;
+                break;
+        }
+    }
     public void StartCooltime(float duration)
     {
         if (cooltimeRoutine != null)
