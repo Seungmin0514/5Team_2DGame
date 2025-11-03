@@ -17,16 +17,14 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        // 씬에서 GamePlayer를 찾아옴 (현재 선택된 캐릭터의 플레이어)
         player = FindObjectOfType<GamePlayer>();
 
         if (player == null)
         {
-            Debug.LogWarning("GamePlayer를 찾을 수 없습니다. HealthBar가 초기화되지 않습니다.");
+            Debug.LogWarning("GamePlayer를 찾을 수 없습니다.");
             return;
         }
 
-        // 플레이어의 HP 값으로 초기 세팅
         maxHP = player.Hp;
         currentHP = player.Hp;
 
@@ -37,7 +35,6 @@ public class HealthBar : MonoBehaviour
     {
         if (player == null) return;
 
-        // HP 변화 감지 시 슬라이더 업데이트
         if (currentHP != player.Hp)
         {
             currentHP = player.Hp;
