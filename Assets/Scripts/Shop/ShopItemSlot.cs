@@ -6,11 +6,10 @@ using TMPro;
 
 public class ShopItemSlot : MonoBehaviour
 {
-    [Header("UI")]
     public Image portraitImage;
-    public TMP_Text nameText;
-    public TMP_Text priceText;
-    public TMP_Text statusText;
+    public Text nameText;
+    public Text priceText;
+    public Text statusText;
     public GameObject lockOverlay;
     public Button openDialogButton;
 
@@ -19,16 +18,14 @@ public class ShopItemSlot : MonoBehaviour
 
     public void Setup(SkinConfig cfg, ShopManager shop)
     {
-        this.cfg = cfg;
-        this.shop = shop;
-
-        if(nameText)
-            nameText.text = cfg.displayName;
-        if(priceText)
-            priceText.text = cfg.price.ToString();
+        this.cfg = cfg; this.shop = shop;
+        if (nameText) nameText.text = cfg.displayName;
+        if (priceText) priceText.text = cfg.price.ToString();
 
         openDialogButton.onClick.RemoveAllListeners();
         openDialogButton.onClick.AddListener(() => shop.OpenPurchaseDialog(cfg));
+
+        RefreshView();
     }
 
     public void RefreshView()
@@ -39,9 +36,8 @@ public class ShopItemSlot : MonoBehaviour
 
         if (portraitImage)
             portraitImage.sprite = owned ? cfg.portrait : (cfg.silhouette ? cfg.silhouette : cfg.portrait);
-        if(lockOverlay)
-            lockOverlay.SetActive(!owned);
-        if(statusText)
-            statusText.text = equipped ? "Equipped" : (owned ? "Owned" : "Locked");
+
+        if (lockOverlay) lockOverlay.SetActive(!owned);
+        if (statusText) statusText.text = equipped ? "Equipped" : (owned ? "Owned" : "Locked");
     }
 }
