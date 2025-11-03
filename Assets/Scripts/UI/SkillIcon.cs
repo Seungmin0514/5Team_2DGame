@@ -1,13 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class SkillIcon : MonoBehaviour
 {
     [Header("UI References")]
     public Image skillIcon;
     public Image cooldownOverlay;
+    public List<CharacterData> characterData;
 
     private float coolTime;
     private float maxCoolTime;
@@ -20,16 +21,16 @@ public class SkillIcon : MonoBehaviour
         switch (type)
         {
             case CharacterType.One:
-                //skillIcon.sprite = ;
-                //cooldownOverlay.sprite = ;
+                skillIcon.sprite = characterData[0].skillIcon;
+                cooldownOverlay.sprite = characterData[0].skillIconDisabled;
                 break;
             case CharacterType.Two:
-                //skillIcon.sprite = ;
-                //cooldownOverlay.sprite = ;
+                skillIcon.sprite = characterData[1].skillIcon;
+                cooldownOverlay.sprite = characterData[1].skillIconDisabled;
                 break;
             case CharacterType.Three:
-                //skillIcon.sprite = ;
-                //cooldownOverlay.sprite = ;
+                skillIcon.sprite = characterData[2].skillIcon;
+                cooldownOverlay.sprite = characterData[2].skillIconDisabled;
                 break;
         }
     }
