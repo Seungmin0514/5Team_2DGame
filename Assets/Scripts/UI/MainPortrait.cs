@@ -12,7 +12,7 @@ public class MainPortrait : MonoBehaviour
 
     void Start()
     {
-        characterManager = GameCharacterManager.characterManager;
+        characterManager = GameCharacterManager.Instance;
         UpdatePortrait();
     }
 

@@ -22,6 +22,7 @@ public class GameActoinManager : MonoBehaviour
         if(objData.id == 200)
         {
             villageSceneManager.EnterGame();
+            GameCharacterManager.Instance.SetCharacter(GameDataManager.Instance.selectedCharacter);
             return;
         }
         Talk(objData.id, objData.isNpc);
