@@ -5,7 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class NpcInteract : MonoBehaviour
 {
-    public enum Role { Shop, SkinSelect }  // NPC 역할 구분
+    public enum Role 
+    {
+        Shop,
+        SkinSelect
+    }  // NPC 역할 구분
 
     [Header("역할 설정")]
     public Role role = Role.Shop;          // 이 NPC가 상점인지 선택창인지 지정
@@ -60,11 +64,18 @@ public class NpcInteract : MonoBehaviour
         switch (role)
         {
             case Role.Shop:
-                if (shopManager) shopManager.OpenShop();
+                if (shopManager)
+                {
+                    if (shopManager.panelRoot.activeSelf)
+                        shopManager.CloseShop();
+                    else
+                        shopManager.OpenShop();
+                }
                 break;
 
             case Role.SkinSelect:
-                if (skinSelectManager) skinSelectManager.Open();
+                if (skinSelectManager) 
+                    skinSelectManager.Open();
                 break;
         }
     }

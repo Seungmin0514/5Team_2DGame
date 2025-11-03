@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class SkinSelectManager : MonoBehaviour
     public GameObject panelRoot;          
     public Transform itemListParent;      
     public GameObject itemSlotPrefab;     
-    public Text equippedText;             
+    public TMP_Text equippedText;             
 
     SkinCatalog Catalog => SkinCatalog.Instance;
 

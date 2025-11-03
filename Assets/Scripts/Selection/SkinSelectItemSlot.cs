@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SkinSelectItemSlot : MonoBehaviour
 {
     public Image portraitImage;
-    public Text nameText;
-    public Text statusText;
+    public TMP_Text nameText;
+    public TMP_Text statusText;
     public Button equipButton;
 
     SkinConfig cfg;

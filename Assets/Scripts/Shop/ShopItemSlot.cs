@@ -7,9 +7,9 @@ using TMPro;
 public class ShopItemSlot : MonoBehaviour
 {
     public Image portraitImage;
-    public Text nameText;
-    public Text priceText;
-    public Text statusText;
+    public TMP_Text nameText;
+    public TMP_Text priceText;
+    public TMP_Text statusText;
     public GameObject lockOverlay;
     public Button openDialogButton;
 

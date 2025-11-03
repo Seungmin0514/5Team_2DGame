@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-using TMPro;
 
 public class PurchaseDialog : MonoBehaviour
 {
     public GameObject panelRoot;
     public Image portrait;
-    public Text titleText;
-    public Text priceText;
-    public Text warningText;
+    public TMP_Text titleText;
+    public TMP_Text priceText;
+    public TMP_Text warningText;
     public Button buyButton;
     public Button cancelButton;
 

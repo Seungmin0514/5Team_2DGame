@@ -12,11 +12,11 @@ public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager Instance;
 
-    [SerializeField] int defaultCoins = 200;
-    [SerializeField] string defaultSkinId = "cookie_basic";
+    [SerializeField] private int defaultCoins = 200;
+    [SerializeField] private string defaultSkinId = "cookie_basic";
 
-    [SerializeField] private bool devCheats = false;
-    [SerializeField] private int cheatAddCoins = 100; // 단축키로 추가
+    //[SerializeField] private bool devCheats = false;
+    //[SerializeField] private int cheatAddCoins = 100; // 단축키로 추가
 
     const string KEY_COINS = "coins";
     const string KEY_SKINS = "owned_skins"; // CSV
@@ -30,7 +30,11 @@ public class GameDataManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(gameObject); 
+            return; 
+        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
         LoadAllOrInit();
