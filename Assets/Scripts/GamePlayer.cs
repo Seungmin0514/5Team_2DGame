@@ -11,8 +11,8 @@ public class GamePlayer : MonoBehaviour
         nomal,
         god,
     }
-    
-    
+
+    private Vector3 PlayerStartPosition;
 
     private bool isIgnoringWall = false;
 
@@ -20,6 +20,7 @@ public class GamePlayer : MonoBehaviour
     public int Hp { get; private set; }
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
+    private float Cooldown =0f;
 
     public float CurrentSpeed => moveSpeed * skillSpeedMultiplier;
     [SerializeField] Rigidbody2D playerRigidbody;
@@ -36,10 +37,15 @@ public class GamePlayer : MonoBehaviour
         gamePlayerControl = GetComponent<GamePlayerControl>();
         gamePlayerAnimationControl = GetComponent<GamePlayerAnimationControl>();
     }
+    private void Start()
+    {
+        PlayerStartPosition = transform.position;
+    }
     private void Update()
     {
-        
-            playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
+        if (skill != null)
+            Cooldown += Time.deltaTime;
+        playerRigidbody.velocity += Vector2.down * characterData.gravity * Time.deltaTime;
         
     }
 
@@ -64,6 +70,16 @@ public class GamePlayer : MonoBehaviour
         yield return new WaitForSeconds(duration);
         skillSpeedMultiplier /= multiplier;
         
+    }
+    public IEnumerator SizeChange(float multiplier, float duration)
+    {
+        gameObject.transform.localScale = new Vector3(multiplier, multiplier, multiplier);
+
+
+        yield return new WaitForSeconds(duration);
+
+        gameObject.transform.localScale = Vector3.one;
+
     }
     public IEnumerator IgnoreWall(float duration)
     {
@@ -133,8 +149,11 @@ public class GamePlayer : MonoBehaviour
         }
     
     }
-    private void HpCheck()
-    {
+    private void Damaged()
+    { 
+        Hp -= 1;
+        StartCoroutine(IgnoreWall(3f));
+        gamePlayerAnimationControl.DamagedAnimation();
         if (Hp <= 0)
         {
             gamePlayerAnimationControl.DieAnimation();
@@ -147,14 +166,17 @@ public class GamePlayer : MonoBehaviour
     {
         if (collision.CompareTag("Wall"))
         {
-            Hp -= 1;
-            gamePlayerAnimationControl.DamagedAnimation();
-            HpCheck();
-
+            Damaged();
+        }
+        else if (collision.CompareTag("BackWall")){
+            Debug.Log("µÞº®");
+            Damaged();
+            transform.position = PlayerStartPosition;
         }
     }
     public void UseSkill()
     {
+        if (Cooldown < characterData.cooldown) return;
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
     }

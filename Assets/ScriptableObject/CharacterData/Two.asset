@@ -17,9 +17,9 @@ MonoBehaviour:
   maxHp: 5
   jumpForce: 30
   doubleJumpForce: 20
-  speed: 5
+  speed: 15
   gravity: 100
   animatorController: {fileID: 9100000, guid: 302c107bacc426b41be1d093ed801207, type: 2}
   skills: 1
-  skillName: TwoSkill
+  skillName: HyperSpeed
   cooldown: 0

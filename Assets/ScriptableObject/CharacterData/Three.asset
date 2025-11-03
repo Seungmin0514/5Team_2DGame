@@ -17,9 +17,9 @@ MonoBehaviour:
   maxHp: 3
   jumpForce: 30
   doubleJumpForce: 20
-  speed: 20
+  speed: 15
   gravity: 100
   animatorController: {fileID: 9100000, guid: 9e3a2f31e1838924bbc2b929cfd0f492, type: 2}
   skills: 2
-  skillName: ThreeSkill
+  skillName: Heal
   cooldown: 0
