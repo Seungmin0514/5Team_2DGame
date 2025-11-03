@@ -936,7 +936,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2, y: -180}
-  m_SizeDelta: {x: 180, y: 60}
+  m_SizeDelta: {x: 60, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7991504615104415480
 CanvasRenderer:
@@ -1734,9 +1734,6 @@ MonoBehaviour:
   hpSlider: {fileID: 172466540141315409}
   dividerParent: {fileID: 7081065669874390976}
   dividerPrefab: {fileID: 906568862820784711, guid: 603681a694e38064da5f00a84d2be533, type: 3}
-  characterData: []
-  maxHP: 5
-  currentHP: 5
 --- !u!1 &5798745710723312354
 GameObject:
   m_ObjectHideFlags: 0
