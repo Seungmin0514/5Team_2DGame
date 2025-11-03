@@ -16,6 +16,8 @@ public class GameDataManager : MonoBehaviour
     const string KEY_SKINS = "owned_skins";
     const string KEY_EQUIP = "equipped_skin";
 
+    public CharacterType selectedCharacter = CharacterType.Three;
+
     int _coins;
     HashSet<string> _owned = new HashSet<string>();
     string _equipped;
