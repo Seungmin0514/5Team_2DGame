@@ -22,6 +22,14 @@ public class GamePlayer : MonoBehaviour
     public float skillSpeedMultiplier = 1f; 
     private float Cooldown =0f;
 
+    AudioSource audioSource;
+    public AudioClip jumpClip;
+    public AudioClip hurtclip;
+    public AudioClip slideClip;
+
+    public AudioClip skillOneClip;
+    public AudioClip skillTwoClip;
+    public AudioClip skillThreeClip;
     public float CurrentSpeed => moveSpeed * skillSpeedMultiplier;
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] public CharacterData characterData;
@@ -40,6 +48,7 @@ public class GamePlayer : MonoBehaviour
     private void Start()
     {
         PlayerStartPosition = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -53,13 +62,13 @@ public class GamePlayer : MonoBehaviour
     {
         switch (skill) {
             case Skills.One:
-                this.skill = new OneSkill();
+                this.skill = new OneSkill(skillOneClip);
                 break;
             case Skills.Two:
-                this.skill = new TwoSkill();
+                this.skill = new TwoSkill(skillTwoClip);
                 break;
             case Skills.Three:
-                this.skill = new ThreeSkill();
+                this.skill = new ThreeSkill(skillThreeClip);
                 break;
             }
     }
@@ -121,6 +130,7 @@ public class GamePlayer : MonoBehaviour
     {
         if (IsGround)
         {
+            audioSource.PlayOneShot(jumpClip);
             gamePlayerAnimationControl.JumpAnimation();
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.jumpForce);
             IsGround = false;
@@ -134,6 +144,7 @@ public class GamePlayer : MonoBehaviour
     }
     public void DoubleJump()
     {
+        audioSource.PlayOneShot(jumpClip);
             gamePlayerAnimationControl.DoubleJumpEffect();
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.doubleJumpForce);
             IsCanDoubleJump = false;
@@ -150,7 +161,8 @@ public class GamePlayer : MonoBehaviour
     
     }
     private void Damaged()
-    { 
+    {
+        audioSource.PlayOneShot(hurtclip);
         Hp -= 1;
         StartCoroutine(IgnoreWall(3f));
         gamePlayerAnimationControl.DamagedAnimation();
@@ -178,11 +190,16 @@ public class GamePlayer : MonoBehaviour
     public void UseSkill()
     {
         if (Cooldown < characterData.cooldown) return;
+        if(skill.SkillClip != null&&audioSource != null)
+        {
+            audioSource.PlayOneShot(skill.SkillClip);
+        }
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
     }
     public void UseSlide()
     {
+        audioSource.PlayOneShot(slideClip);
         gamePlayerAnimationControl.UseSlideAnimation();
     }
     public void EndSlide()
