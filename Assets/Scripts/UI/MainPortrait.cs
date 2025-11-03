@@ -16,6 +16,16 @@ public class MainPortrait : MonoBehaviour
 
     public void UpdatePortrait()
     {
+        if (GameDataManager.Instance == null)
+        {
+            Debug.LogWarning("GameDataManager 인스턴스가 없습니다.");
+            return;
+        }
+        if (portraitImage == null)
+        {
+            Debug.LogWarning("portraitImage가 연결되어 있지 않습니다.");
+            return;
+        }
         var type = GameDataManager.Instance.selectedCharacter;
         Debug.Log("캐릭터 타입: " + type);
         switch (type)
@@ -28,6 +38,9 @@ public class MainPortrait : MonoBehaviour
                 break;
             case CharacterType.Three:
                 portraitImage.sprite = characterData[2].portrait;
+                break;
+            default:
+                Debug.LogWarning("알 수 없는 캐릭터 타입");
                 break;
         }
     }
