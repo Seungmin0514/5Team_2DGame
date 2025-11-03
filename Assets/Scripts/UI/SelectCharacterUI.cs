@@ -13,6 +13,8 @@ public class SelectCharacterUI : MonoBehaviour
     public TextMeshProUGUI spdTxt;
     public TextMeshProUGUI skillNameTxt;
 
+    private CharacterData currentCharacterData;
+
     public void SetCharacter(CharacterData data)
     {
         if (data == null || data.animatorController == null)
@@ -20,8 +22,8 @@ public class SelectCharacterUI : MonoBehaviour
             Debug.LogWarning("Animator Controller가 비어 있습니다: " + data?.name);
             return;
         }
-        var characterType = data.characterType;
-        switch (characterType)
+        currentCharacterData = data;
+        switch (data.characterType)
         {
             case CharacterType.One:
                 previewAnimator.SetInteger("CharNum", 0);
@@ -40,5 +42,14 @@ public class SelectCharacterUI : MonoBehaviour
         hpTxt.text = data.maxHp.ToString();
         spdTxt.text = data.speed.ToString();
         skillNameTxt.text = data.skillName;
+    }
+    public void ConfirmSelection()
+    {
+        if (currentCharacterData == null)
+        {
+            Debug.LogWarning("선택된 캐릭터가 없습니다!");
+            return;
+        }
+        GameDataManager.Instance.selectedCharacter = currentCharacterData.characterType;
     }
 }

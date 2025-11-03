@@ -1647,6 +1647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterSelectUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3665956554524902554, guid: 7329c12b8d40e7846ab983150882fed0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1872,6 +1876,12 @@ MonoBehaviour:
   playerMode: 0
   moveSpeed: 5
   skillSpeedMultiplier: 1
+  jumpClip: {fileID: 0}
+  hurtclip: {fileID: 0}
+  slideClip: {fileID: 0}
+  skillOneClip: {fileID: 0}
+  skillTwoClip: {fileID: 0}
+  skillThreeClip: {fileID: 0}
   playerRigidbody: {fileID: 1832486540}
   characterData: {fileID: 0}
   gamePlayerControl: {fileID: 0}
