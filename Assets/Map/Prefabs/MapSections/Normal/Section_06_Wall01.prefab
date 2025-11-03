@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2200372737605891803}
   - component: {fileID: 8933158777584661029}
   - component: {fileID: 6386081684395330451}
+  - component: {fileID: 4451617445690521020}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -646,7 +647,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1517,8 +1518,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -681411227, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 18
     m_Data: {fileID: 401058609, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
   - m_RefCount: 36
@@ -1531,8 +1532,8 @@ Tilemap:
     m_Data: {fileID: -754679857, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
   - m_RefCount: 24
     m_Data: {fileID: 703657506, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -681411227, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1378070111, guid: c2c698e451488db4094d6ddf5d21ce0b, type: 3}
   - m_RefCount: 1
@@ -1640,6 +1641,42 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &4451617445690521020
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258891205132373632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &3091898304250412727
 GameObject:
   m_ObjectHideFlags: 0
