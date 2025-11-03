@@ -5,13 +5,17 @@ using UnityEngine;
 public class SkinCatalog : MonoBehaviour
 {
     public static SkinCatalog Instance;
-    public List<SkinConfig> skins = new(); // 3개 등록
+
+    public List<SkinConfig> skins = new List<SkinConfig>(); // 3개 등록
 
     void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(gameObject); 
+            return;
+        }
         Instance = this;
     }
-
-    public SkinConfig Get(string id) => skins.Find(s => s != null && s.skinId == id);
+    //public SkinConfig Get(string id) => skins.Find(s => s != null && s.skinId == id);
 }

@@ -1,7 +1,5 @@
 using UnityEngine;
 
-public enum CharacterType { A, B, C } // AnimationClipChanger 캐릭터
-
 [System.Serializable]
 public class SkinConfig
 {
@@ -14,6 +12,6 @@ public class SkinConfig
     public Sprite portrait;
     public Sprite silhouette;
 
-    [Header("Animation Type")]
-    public CharacterType type;   // A/B/C → (one/two/three)에 매핑
+    [Header("Type")]
+    public string type;   //two one three
 }

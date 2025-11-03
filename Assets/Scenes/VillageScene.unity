@@ -2476,7 +2476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533758883}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 17.93, y: -2.94, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3434,7 +3434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663517274}
-  - component: {fileID: 663517273}
+  - component: {fileID: 663517275}
   m_Layer: 0
   m_Name: GameSystems
   m_TagString: Untagged
@@ -3442,23 +3442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &663517273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663517272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88cd22a99439cd843abcd0e4b87bbb6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultCoins: 4
-  defaultSkinId: skin_basic
-  devCheats: 0
-  cheatAddCoins: 100
-  selectedCharacter: 2
 --- !u!4 &663517274
 Transform:
   m_ObjectHideFlags: 0
@@ -3474,6 +3457,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663517275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663517272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cd22a99439cd843abcd0e4b87bbb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCoins: 200
+  defaultSkinId: skin_basic
+  devCheats: 0
+  cheatAddCoins: 100
+  selectedCharacter: 2
 --- !u!1 &664503812
 GameObject:
   m_ObjectHideFlags: 0
@@ -7209,6 +7209,89 @@ MonoBehaviour:
   itemSlotPrefab: {fileID: 2207141724045325654, guid: e90e31710eefc2e468ae429bd5eef264, type: 3}
   coinsText: {fileID: 1968601434}
   purchaseDialog: {fileID: 604755907}
+--- !u!1 &1143627498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143627500}
+  - component: {fileID: 1143627499}
+  - component: {fileID: 1143627501}
+  m_Layer: 0
+  m_Name: SkinCatalog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1143627499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143627498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cfcc9e2bf59d54aaec9fe6bfc5793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Skins:
+  - skinId: two
+    displayName: "\uCE90\uB9AD\uD1301"
+    portrait: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
+    silhouette: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
+    price: 0
+    animatorOverride: {fileID: 0}
+    animatorController: {fileID: 0}
+    singleSprite: {fileID: 0}
+  - skinId: 
+    displayName: 
+    portrait: {fileID: 0}
+    silhouette: {fileID: 0}
+    price: 0
+    animatorOverride: {fileID: 0}
+    animatorController: {fileID: 0}
+    singleSprite: {fileID: 0}
+  - skinId: 
+    displayName: 
+    portrait: {fileID: 0}
+    silhouette: {fileID: 0}
+    price: 0
+    animatorOverride: {fileID: 0}
+    animatorController: {fileID: 0}
+    singleSprite: {fileID: 0}
+--- !u!4 &1143627500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143627498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143627501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143627498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cfcc9e2bf59d54aaec9fe6bfc5793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Skins: []
 --- !u!1 &1152924962
 GameObject:
   m_ObjectHideFlags: 0
@@ -10092,17 +10175,18 @@ SceneRoots:
   - {fileID: 248756770}
   - {fileID: 1375412847}
   - {fileID: 569340606}
+  - {fileID: 533758885}
   - {fileID: 1182649456}
   - {fileID: 1648052033}
-  - {fileID: 533758885}
   - {fileID: 2033671808}
   - {fileID: 595844965}
   - {fileID: 1978048325}
-  - {fileID: 1955981303}
-  - {fileID: 6213804658956403741}
   - {fileID: 663517274}
   - {fileID: 571321848}
   - {fileID: 655505442}
   - {fileID: 1775051668}
   - {fileID: 1257294710}
   - {fileID: 1423756949}
+  - {fileID: 1143627500}
+  - {fileID: 6213804658956403741}
+  - {fileID: 1955981303}
