@@ -23,3 +23,5 @@ MonoBehaviour:
   skills: 1
   skillName: HyperSpeed
   cooldown: 0
+  skillIcon: {fileID: -965272301, guid: e827bcdb03603c54893544583dcd3b56, type: 3}
+  skillIconDisabled: {fileID: 868356036, guid: e827bcdb03603c54893544583dcd3b56, type: 3}

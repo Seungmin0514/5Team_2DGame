@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 
 [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Game/CharacterData")]
@@ -18,6 +17,7 @@ public class CharacterData : ScriptableObject
     public Skills skills;
     public string skillName;
     public float cooldown;
-    
+    public Sprite skillIcon;
+    public Sprite skillIconDisabled;
 
 }

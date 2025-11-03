@@ -1584,7 +1584,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b67ea9ee093644997b4624bb0a6aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillIcon: {fileID: 4035834350729790244}
   cooldownOverlay: {fileID: 6473636242780898219}
+  characterData:
+  - {fileID: 11400000, guid: 9e2096cb923c98047b0dde5e1531f544, type: 2}
+  - {fileID: 11400000, guid: ce30d3a8c477122469808a30208e4512, type: 2}
+  - {fileID: 11400000, guid: c99f3360da0a4ae46b5826769bfa0dcf, type: 2}
 --- !u!1 &5170214275728325976
 GameObject:
   m_ObjectHideFlags: 0
