@@ -13,5 +13,5 @@ public class SkinConfig
     public Sprite silhouette;
 
     [Header("Type")]
-    public string type;   //two one three
+    public CharacterType type;   //two one three
 }

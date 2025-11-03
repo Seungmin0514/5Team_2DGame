@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterType
+{
+    One,
+    Two,
+    Three,
+}
+
 public class GameDataManager : MonoBehaviour
 {
     public static GameDataManager Instance;
@@ -14,6 +21,8 @@ public class GameDataManager : MonoBehaviour
     const string KEY_COINS = "coins";
     const string KEY_SKINS = "owned_skins"; // CSV
     const string KEY_EQUIP = "equipped_skin";
+
+    public CharacterType selectedCharacter = CharacterType.Three;
 
     int _coins;
     HashSet<string> _owned = new();

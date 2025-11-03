@@ -17,5 +17,6 @@ public class SkinCatalog : MonoBehaviour
         }
         Instance = this;
     }
+
     //public SkinConfig Get(string id) => skins.Find(s => s != null && s.skinId == id);
 }
