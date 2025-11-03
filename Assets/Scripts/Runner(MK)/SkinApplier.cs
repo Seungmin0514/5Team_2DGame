@@ -26,7 +26,21 @@ public class SkinApplier : MonoBehaviour
 
     public void ApplyNow()
     {
-        if (catalog == null) catalog = SkinCatalog.Instance;
+        if (catalog == null)
+        {
+            if(SkinCatalog.Instance == null)
+            {
+                Debug.Log("SkinCatalog 인스턴스 null");
+                return;
+            }
+            catalog = SkinCatalog.Instance;
+        }
+            
+        if(GameDataManager.Instance == null)
+        {
+            Debug.LogError("GameDataManager인스턴스 null");
+            return;
+        }
         string id = GameDataManager.Instance.GetEquipped();
         var cfg = catalog ? catalog.Get(id) : null;
         if (cfg == null) return;
