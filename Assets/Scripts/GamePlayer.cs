@@ -21,6 +21,7 @@ public class GamePlayer : MonoBehaviour
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
     private float Cooldown =0f;
+    SkillIcon skillIcon;
 
     AudioSource audioSource;
     public AudioClip jumpClip;
@@ -49,6 +50,7 @@ public class GamePlayer : MonoBehaviour
     {
         PlayerStartPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
+        skillIcon = GetComponent<SkillIcon>();
     }
     private void Update()
     {
@@ -196,6 +198,7 @@ public class GamePlayer : MonoBehaviour
         }
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
+        skillIcon.StartCooltime(Cooldown);
     }
     public void UseSlide()
     {

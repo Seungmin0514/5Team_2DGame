@@ -30,7 +30,7 @@ public class RunGameManager : MonoBehaviour
     {
         GameDataManager.Instance.AddCoins((int)gold);
         resultPopup.SetActive(true);
-        
-        
+        Time.timeScale = 0f;
+
     }
 }
