@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4c12cbb181345f42bf069addbfb893c
+guid: 06fdb4f7f87965f41abeb7dcba02d02a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DinoSprites - tard_0
+      name: Julia_PC_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3
-        width: 15
-        height: 17
+        x: 13
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cbed6adbbfc64347acd6755d5d633f0
-      internalID: -1685198305
+      spriteID: acbbf7fd36f9be646a1b6bbc00be1865
+      internalID: -1067941489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DinoSprites - tard_1
+      name: Julia_PC_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 3
-        width: 15
-        height: 17
+        x: 77
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bd41a6b1e8fdde4082d0cd51680da1d
-      internalID: 1330276588
+      spriteID: 382f0a6bae661984f91792c6f2436a16
+      internalID: -1277762607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DinoSprites - tard_2
+      name: Julia_PC_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 3
-        width: 15
-        height: 17
+        x: 141
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07d020f2d95300d49a232176dd0fdcfc
-      internalID: 14289469
+      spriteID: c1021d6477816c5428ca0f00bf8d005b
+      internalID: 2064594114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DinoSprites - tard_3
+      name: Julia_PC_3
       rect:
         serializedVersion: 2
-        x: 76
-        y: 3
-        width: 15
-        height: 17
+        x: 205
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,50 +200,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a136385ee37aa2840b29199fd1ca29e8
-      internalID: 1372068161
+      spriteID: 032317030655a6b48b1ae511fb815e5b
+      internalID: -2127671817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DinoSprites - tard_4
+      name: Julia_PC_4
       rect:
         serializedVersion: 2
-        x: 340
-        y: 3
-        width: 15
-        height: 18
+        x: 269
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488670de22d55ba40bf3c12d8da591b2
-      internalID: -1927652466
+      spriteID: 1a9a8d0fd89a6874191be4b2049dbc8d
+      internalID: 1080696253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DinoSprites - tard_5
+      name: Julia_PC_5
       rect:
         serializedVersion: 2
-        x: 386
-        y: 3
-        width: 15
-        height: 18
+        x: 333
+        y: 10
+        width: 38
+        height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4d5eb12fdd494347a095ec2982c088e
-      internalID: -1510108849
+      spriteID: 26e048e6f165ac349ab647e52d724f27
+      internalID: -1738063814
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DinoSprites - tard_0: -1685198305
-      DinoSprites - tard_1: 1330276588
-      DinoSprites - tard_2: 14289469
-      DinoSprites - tard_3: 1372068161
-      DinoSprites - tard_4: -1927652466
-      DinoSprites - tard_5: -1510108849
+      Julia_PC_0: -1067941489
+      Julia_PC_1: -1277762607
+      Julia_PC_2: 2064594114
+      Julia_PC_3: -2127671817
+      Julia_PC_4: 1080696253
+      Julia_PC_5: -1738063814
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

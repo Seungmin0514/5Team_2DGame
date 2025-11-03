@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4c12cbb181345f42bf069addbfb893c
+guid: 5baa1a4b098085b47a8e536ad5b60d07
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,133 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: DinoSprites - tard_0
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 3
-        width: 15
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cbed6adbbfc64347acd6755d5d633f0
-      internalID: -1685198305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DinoSprites - tard_1
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 3
-        width: 15
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bd41a6b1e8fdde4082d0cd51680da1d
-      internalID: 1330276588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DinoSprites - tard_2
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 3
-        width: 15
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07d020f2d95300d49a232176dd0fdcfc
-      internalID: 14289469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DinoSprites - tard_3
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 3
-        width: 15
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a136385ee37aa2840b29199fd1ca29e8
-      internalID: 1372068161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DinoSprites - tard_4
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 3
-        width: 15
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 488670de22d55ba40bf3c12d8da591b2
-      internalID: -1927652466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DinoSprites - tard_5
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 3
-        width: 15
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4d5eb12fdd494347a095ec2982c088e
-      internalID: -1510108849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -258,13 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      DinoSprites - tard_0: -1685198305
-      DinoSprites - tard_1: 1330276588
-      DinoSprites - tard_2: 14289469
-      DinoSprites - tard_3: 1372068161
-      DinoSprites - tard_4: -1927652466
-      DinoSprites - tard_5: -1510108849
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

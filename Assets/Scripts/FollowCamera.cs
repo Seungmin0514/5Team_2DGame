@@ -28,7 +28,7 @@ public class FollowCamera : MonoBehaviour
         if (pos.x >= 19)
         {
             pos.x = 19;
-        }else if (pos.x <= -4)
+        }else if (pos.x <= -4&&pos.x>=-20)
         {
             pos.x = -4;
         }
