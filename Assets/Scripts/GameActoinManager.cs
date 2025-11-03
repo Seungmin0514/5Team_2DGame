@@ -13,7 +13,7 @@ public class GameActoinManager : MonoBehaviour
     public GameObject talkPanel;
     public Image portraitImg;
     public bool isAction;
-    public VillageSceneManager villageSceneManager;
+    public LoadSceneManager villageSceneManager;
     public void Action(GameObject scanObj)
     {
         isAction = true;
