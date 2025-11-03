@@ -5210,10 +5210,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_VillageUI
       objectReference: {fileID: 0}
-    - target: {fileID: 7437454755310815327, guid: b64ea150dc0b73548b3f82ec8e3e6b59, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
