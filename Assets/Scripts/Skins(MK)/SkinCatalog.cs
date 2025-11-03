@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class SkinCatalog : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static SkinCatalog Instance;
 
-    // Update is called once per frame
-    void Update()
+    public List<SkinConfig> Skins = new List<SkinConfig>(); //3°³ µî·Ï
+
+    void Awake()
     {
-        
+        if (Instance == null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
+    public SkinConfig Get(string id) => Skins.Find(s => s != null && s.skinId == id);
 }
