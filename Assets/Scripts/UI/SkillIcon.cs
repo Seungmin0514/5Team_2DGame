@@ -16,6 +16,11 @@ public class SkillIcon : MonoBehaviour
 
     private void Start()
     {
+        if (GameDataManager.Instance == null)
+        {
+            Debug.LogWarning("GameDataManager 인스턴스가 없습니다.");
+            return;
+        }
         var type = GameDataManager.Instance.selectedCharacter;
         Debug.Log("캐릭터 타입: " + type);
         switch (type)
@@ -31,6 +36,9 @@ public class SkillIcon : MonoBehaviour
             case CharacterType.Three:
                 skillIcon.sprite = characterData[2].skillIcon;
                 cooldownOverlay.sprite = characterData[2].skillIconDisabled;
+                break;
+            default:
+                Debug.LogWarning("알 수 없는 캐릭터 타입");
                 break;
         }
     }
