@@ -50,7 +50,7 @@ public class GamePlayer : MonoBehaviour
     {
         PlayerStartPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
-        skillIcon = GetComponent<SkillIcon>();
+        skillIcon = FindObjectOfType<SkillIcon>();
     }
     private void Update()
     {
@@ -198,7 +198,8 @@ public class GamePlayer : MonoBehaviour
         }
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
-        skillIcon.StartCooltime(Cooldown);
+        Debug.Log("ÄðÅ¸ÀÓ °ª: " + characterData.cooldown);
+        skillIcon.StartCooltime(characterData.cooldown);
     }
     public void UseSlide()
     {
