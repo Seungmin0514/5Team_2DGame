@@ -11,6 +11,17 @@ public class ShopUIManager : MonoBehaviour
     public Image characterAImg;
     public Image characterBImg;
 
+    private GameActoinManager gameActoinManager;
+    public GameObject selectUI;
+
+    void Awake()
+    {
+        gameActoinManager = FindAnyObjectByType<GameActoinManager>();
+        if(gameActoinManager == null)
+        {
+            Debug.LogError("GameActionManager를 찾을 수 없습니다.");
+        }
+    }
     public void UpdatePurchaseStatusUI()
     {
         if(GameDataManager.Instance == null)
@@ -49,6 +60,10 @@ public class ShopUIManager : MonoBehaviour
         characterAPanel.gameObject.SetActive(false);
         characterBPanel.gameObject.SetActive(false);
         entirePanel.gameObject.SetActive(false);
+        if(gameActoinManager != null)
+        {
+            gameActoinManager.isAction = false;
+        }
     }
     public void CloseCharacterAPanel()
     {
@@ -99,4 +114,13 @@ public class ShopUIManager : MonoBehaviour
     {
         GameDataManager.Instance.SetCoins(200);
     }
+
+    public void CloseSelectUI()
+    {
+        selectUI.SetActive(false);
+        if (gameActoinManager != null)
+        {
+            gameActoinManager.isAction = false;
+        }
+    } 
 }

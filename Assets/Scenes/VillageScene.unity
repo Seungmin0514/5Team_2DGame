@@ -9451,6 +9451,7 @@ MonoBehaviour:
   entirePanel: {fileID: 1022221548}
   characterAImg: {fileID: 1856940516}
   characterBImg: {fileID: 1316862297}
+  selectUI: {fileID: 3665956554159989698}
 --- !u!4 &1474051944
 Transform:
   m_ObjectHideFlags: 0
@@ -11889,10 +11890,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3665956554159989698}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1474051943}
+        m_TargetAssemblyTypeName: ShopUIManager, Assembly-CSharp
+        m_MethodName: CloseSelectUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
