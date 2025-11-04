@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class ShopUIManager : MonoBehaviour
@@ -14,12 +15,33 @@ public class ShopUIManager : MonoBehaviour
     private GameActoinManager gameActoinManager;
     public GameObject selectUI;
 
+    public TextMeshProUGUI coinsCount;
     void Awake()
     {
         gameActoinManager = FindAnyObjectByType<GameActoinManager>();
         if(gameActoinManager == null)
         {
             Debug.LogError("GameActionManager를 찾을 수 없습니다.");
+        }
+        GameSignals.OnCoinsChanged += UpdateCoinUI;
+    }
+    void Start()
+    {
+        if(GameDataManager.Instance != null&&coinsCount != null)
+        {
+            UpdateCoinUI(GameDataManager.Instance.GetCoins());
+        }
+    }
+    void OnDestroy()
+    {
+        GameSignals.OnCoinsChanged -= UpdateCoinUI;   
+        GameSignals.OnCoinsChanged -= UpdateCoinUI;   
+    }
+    public void UpdateCoinUI(int currentCoins)
+    {
+        if(coinsCount != null)
+        {
+            coinsCount.text = currentCoins.ToString();
         }
     }
     public void UpdatePurchaseStatusUI()
@@ -54,6 +76,7 @@ public class ShopUIManager : MonoBehaviour
     public void ShowCharacterBPanel()
     {
         characterBPanel.gameObject.SetActive(true);
+        UpdatePurchaseStatusUI();
     }
     public void CloseEntirePanel()
     {
