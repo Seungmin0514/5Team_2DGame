@@ -24,6 +24,9 @@ public class GameDataManager : MonoBehaviour
 
     public CharacterType selectedCharacter = CharacterType.Three;
 
+    public bool isPurchasedA = false;
+    public bool isPurchasedB = false;
+
     int _coins;
     HashSet<string> _owned = new();
     string _equipped;
@@ -48,6 +51,7 @@ public class GameDataManager : MonoBehaviour
     // Coins
     public int GetCoins() => _coins;
     public void AddCoins(int amount) { if (amount > 0) SetCoins(_coins + amount); }
+    public void MinusCoins(int amount) { SetCoins(_coins - amount); }
     public void SetCoins(int value)
     {
         _coins = Mathf.Max(0, value);
