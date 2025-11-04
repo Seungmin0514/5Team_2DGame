@@ -414,7 +414,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -2884,6 +2884,7 @@ MonoBehaviour:
   characterData:
   - {fileID: 11400000, guid: 9e2096cb923c98047b0dde5e1531f544, type: 2}
   - {fileID: 11400000, guid: ce30d3a8c477122469808a30208e4512, type: 2}
+  - {fileID: 11400000, guid: c99f3360da0a4ae46b5826769bfa0dcf, type: 2}
 --- !u!1 &8501953060593180068
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ public class RunGameManager : MonoBehaviour
 {
     public static RunGameManager Instance;
     public float gold;
+    public int bestGold;
     public GamePlayer player;
-    public GameObject resultPopup;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class RunGameManager : MonoBehaviour
         }
 
         Instance = this;
+        bestGold = PlayerPrefs.GetInt("BestGold", 0);
     }
 
     // Update is called once per frame
@@ -28,9 +29,12 @@ public class RunGameManager : MonoBehaviour
     
     public void EndGame()
     {
+        if (gold > bestGold)
+        {
+            bestGold = (int)gold;
+            PlayerPrefs.SetInt("BestGold", bestGold);
+            PlayerPrefs.Save();
+        }
         GameDataManager.Instance.AddCoins((int)gold);
-        resultPopup.SetActive(true);
-        
-        
     }
 }
