@@ -48,10 +48,12 @@ public class GameActoinManager : MonoBehaviour
         }
         if(objData.id == 300 &&isAction == false)
         {
+            isAction = true;
             panel.gameObject.SetActive(true);
         }
         if(objData.id == 100 && isAction == false)
         {
+            isAction = true;
             shopPanel.gameObject.SetActive(true);
         }
     }
