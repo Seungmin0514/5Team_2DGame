@@ -12,15 +12,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip GameMusic;
     public UnityEngine.UI.Slider musicSlider;
     public UnityEngine.UI.Slider FXSlider;
-    private float musicVolume;
-    private float fxVolume;
+    public float musicVolume;
+    public float fxVolume;
     // Start is called before the first frame update
     public static AudioManager Instance;
     private void Awake()
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
 
@@ -28,10 +28,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        PlayVilageMusic();
-    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -43,20 +40,16 @@ public class AudioManager : MonoBehaviour
 
 
     
-    public void OnLoadSceneVolume(Scene scene, LoadSceneMode mode)
-    {
-        musicSlider.value = musicVolume;
-        FXSlider.value = fxVolume;
-        SceneManager.sceneLoaded -= OnLoadSceneVolume;
-
-    }
+    
     public void PlayVilageMusic()
     {
+        musicAudioSource.Stop();
         musicAudioSource.clip = VilageMusic;
         musicAudioSource.Play();
     }
     public void PlayGameMusic()
     {
+        musicAudioSource.Stop();
         musicAudioSource.clip = GameMusic;
         musicAudioSource.Play();
     }

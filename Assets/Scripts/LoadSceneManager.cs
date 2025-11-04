@@ -10,11 +10,12 @@ public class LoadSceneManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(gameObject);
             return;
         }
             
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -27,7 +28,7 @@ public class LoadSceneManager : MonoBehaviour
         
         AudioManager.Instance.PlayGameMusic();
         SceneManager.sceneLoaded += OnGameSceneLoaded;
-        SceneManager.sceneLoaded += AudioManager.Instance.OnLoadSceneVolume;
+        
 
         Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene");
@@ -37,7 +38,7 @@ public class LoadSceneManager : MonoBehaviour
     {
         AudioManager.Instance.PlayVilageMusic();
         Time.timeScale = 1f;
-        SceneManager.sceneLoaded += AudioManager.Instance.OnLoadSceneVolume;
+       
         SceneManager.LoadScene("VillageScene");
     }
 
