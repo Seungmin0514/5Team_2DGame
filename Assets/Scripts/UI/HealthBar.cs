@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [Header("UI References")]
-    public Slider hpSlider;              // 체력바 슬라이더
+    public UnityEngine.UI.Slider hpSlider;              // 체력바 슬라이더
     public RectTransform dividerParent;  // 분할선 부모
     public GameObject dividerPrefab;     // 분할선 프리팹
 

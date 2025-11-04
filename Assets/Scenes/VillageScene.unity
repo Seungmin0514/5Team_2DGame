@@ -3233,9 +3233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicAudioSource: {fileID: 771236968}
   FXAudioSource: {fileID: 1125599536}
-  clip: {fileID: 0}
-  musicSlider: {fileID: 0}
-  FXSlider: {fileID: 0}
+  VilageMusic: {fileID: 8300000, guid: b7e9f052c1557f34d87ad247db59edc9, type: 3}
+  GameMusic: {fileID: 8300000, guid: bef0cef2ded0f0645ad90c6e5bdd4965, type: 3}
+  musicSlider: {fileID: 5952198588807519185}
+  FXSlider: {fileID: 8725355647623519307}
 --- !u!4 &775055438
 Transform:
   m_ObjectHideFlags: 0
@@ -8191,7 +8192,7 @@ RectTransform:
   m_Father: {fileID: 6635961202127988333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8434,7 +8435,6 @@ GameObject:
   - component: {fileID: 4459348574043552268}
   - component: {fileID: 2895849929363933324}
   - component: {fileID: 6931844750880202505}
-  - component: {fileID: 9068953762356231140}
   m_Layer: 5
   m_Name: MainGameUI
   m_TagString: Untagged
@@ -9387,7 +9387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3271430206258051329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9422,8 +9422,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1044251092560171707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10008,6 +10008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2638499011978381708}
+  - component: {fileID: 5998004244409535633}
   m_Layer: 5
   m_Name: Sliders
   m_TagString: Untagged
@@ -10015,6 +10016,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5998004244409535633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998004244409535632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad48938f94fd30499f7f6da370e86f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 5952198588807519185}
+  fxSlider: {fileID: 8725355647623519307}
 --- !u!224 &6041377396855979960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10254,8 +10269,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5304030288624677615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10269,6 +10284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5670003539675526044}
   - component: {fileID: 5952198588807519185}
+  - component: {fileID: 6715705432761999702}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -10276,6 +10292,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6715705432761999702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715705432761999701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef649719f5ac844397b7c3deffa190f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6931844750880202505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10747,7 +10775,7 @@ RectTransform:
   m_Father: {fileID: 7316452989147339243}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10907,19 +10935,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9068953762356231140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1001478403566670647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f0ca72769b38244a2452f0d6098743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldTxt: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

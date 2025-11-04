@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class MusicSlider : MonoBehaviour
 {
+    
     private void Start()
     {
-        AudioManager.Instance.musicSlider = gameObject.GetComponent<Slider>();  
+        AudioManager.Instance.musicSlider = gameObject.GetComponent<UnityEngine.UI.Slider>();  
     }
 }

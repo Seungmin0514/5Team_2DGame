@@ -139,7 +139,7 @@ public class GamePlayer : MonoBehaviour
     {
         if (IsGround)
         {
-            audioSource.PlayOneShot(jumpClip);
+            AudioManager.Instance.PlayerFx(jumpClip);
             gamePlayerAnimationControl.JumpAnimation();
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.jumpForce);
             IsGround = false;
@@ -153,7 +153,8 @@ public class GamePlayer : MonoBehaviour
     }
     public void DoubleJump()
     {
-        audioSource.PlayOneShot(jumpClip);
+        AudioManager.Instance.PlayerFx(jumpClip);
+        
             gamePlayerAnimationControl.DoubleJumpEffect();
             playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, characterData.doubleJumpForce);
             IsCanDoubleJump = false;
@@ -172,7 +173,7 @@ public class GamePlayer : MonoBehaviour
     private void Damaged()
     {
         if (IsDamaged) return;
-        audioSource.PlayOneShot(hurtclip);
+        AudioManager.Instance.PlayerFx(hurtclip);
         Hp -= 1;
         StartCoroutine(IgnoreDamaged(3f));
         StartCoroutine(IgnoreWall(3f));
@@ -212,7 +213,7 @@ public class GamePlayer : MonoBehaviour
         if (Cooldown < characterData.cooldown) return;
         if(skill.SkillClip != null&&audioSource != null)
         {
-            audioSource.PlayOneShot(skill.SkillClip);
+            AudioManager.Instance.PlayerFx(skill.SkillClip);
         }
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
@@ -221,7 +222,7 @@ public class GamePlayer : MonoBehaviour
     }
     public void UseSlide()
     {
-        audioSource.PlayOneShot(slideClip);
+        AudioManager.Instance.PlayerFx(slideClip);
         gamePlayerAnimationControl.UseSlideAnimation();
     }
     public void EndSlide()

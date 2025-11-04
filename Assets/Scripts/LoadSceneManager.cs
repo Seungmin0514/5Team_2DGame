@@ -24,6 +24,7 @@ public class LoadSceneManager : MonoBehaviour
     }
     public void EnterGame()
     {
+        
         AudioManager.Instance.PlayGameMusic();
         SceneManager.sceneLoaded += OnGameSceneLoaded;
         SceneManager.sceneLoaded += AudioManager.Instance.OnLoadSceneVolume;
