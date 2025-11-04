@@ -20,7 +20,7 @@ public class GamePlayer : MonoBehaviour
     public int Hp { get; private set; }
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
-    private float Cooldown =0f;
+    private float Cooldown =20f;
     SkillIcon skillIcon;
 
     AudioSource audioSource;
@@ -49,6 +49,7 @@ public class GamePlayer : MonoBehaviour
     }
     private void Start()
     {
+        Cooldown = 20f;
         PlayerStartPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
         skillIcon = FindObjectOfType<SkillIcon>();
