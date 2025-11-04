@@ -37,6 +37,7 @@ public class GamePlayer : MonoBehaviour
 
     private bool IsGround = false;
     private bool IsCanDoubleJump = false;
+    private bool IsDamaged =false;
     [SerializeField]private GamePlayerControl gamePlayerControl;
    [SerializeField] private GamePlayerAnimationControl gamePlayerAnimationControl;
     private ISkill skill;
@@ -91,6 +92,12 @@ public class GamePlayer : MonoBehaviour
 
         gameObject.transform.localScale = Vector3.one;
 
+    }
+    public IEnumerator IgnoreDamaged(float duration)
+    {
+        IsDamaged = true;   
+        yield return new WaitForSeconds(duration);
+        IsDamaged = false;
     }
     public IEnumerator IgnoreWall(float duration)
     {
@@ -164,8 +171,10 @@ public class GamePlayer : MonoBehaviour
     }
     private void Damaged()
     {
+        if (IsDamaged) return;
         audioSource.PlayOneShot(hurtclip);
         Hp -= 1;
+        StartCoroutine(IgnoreDamaged(3f));
         StartCoroutine(IgnoreWall(3f));
         gamePlayerAnimationControl.DamagedAnimation();
         if (Hp <= 0)
