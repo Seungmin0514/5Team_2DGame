@@ -1383,7 +1383,7 @@ MonoBehaviour:
   - {fileID: 7412457400655202020, guid: b795193e4d8a9434d9354418f53d7e6a, type: 3}
   - {fileID: 3189952509564043827, guid: 32703a917ee4d9348904e063d4fac140, type: 3}
   normalSectionPrefabs:
-  - {fileID: 4136262647351206735, guid: 8a9441e2fb166954fb271770571054ea, type: 3}
+  - {fileID: 3189952509564043827, guid: c7f8471626663db43b827300e57a1647, type: 3}
   - {fileID: 8678271090929762135, guid: 0f7883a7ab31c2e48a72708b14cb93b0, type: 3}
   - {fileID: 358037894253277184, guid: a6e6d22a8ee13c647a829200b0cbf65c, type: 3}
   - {fileID: 7412457400655202020, guid: 386d91d6460a07943bd55a9770154809, type: 3}
@@ -1392,7 +1392,14 @@ MonoBehaviour:
   - {fileID: 2201333479342198061, guid: f20eefb0cb8b1ce459a46937a757a131, type: 3}
   - {fileID: 4350234539602439863, guid: b568f90713bbaf14daf0aa4f679d2493, type: 3}
   - {fileID: 1439497847535669992, guid: 06d0c7d2cd2aacb49b544b76e86223e6, type: 3}
-  hardSectionPrefabs: []
+  hardSectionPrefabs:
+  - {fileID: 4136262647351206735, guid: 89169c4c5e6e9d7429f909118edd3b1d, type: 3}
+  - {fileID: 1439497847535669992, guid: 4f34447c756eb234bad8de795ce2544c, type: 3}
+  - {fileID: 1439497847535669992, guid: 0b7d74fa3bc323a4f848e0a86e11f60f, type: 3}
+  - {fileID: 4350234539602439863, guid: b5355cc7854871842a0a0c711a68f9ad, type: 3}
+  - {fileID: 2201333479342198061, guid: 360eb0cbf488d7b42a0081f97cd4f05f, type: 3}
+  - {fileID: 8878502816339011698, guid: a63b2a56498449e4bb64d42fb9775375, type: 3}
+  - {fileID: 3189952509564043827, guid: 77e9336295127d1448523d7eb7bd744a, type: 3}
   initialSections: 3
   sectionWidth: 20
   sectionGap: 5
