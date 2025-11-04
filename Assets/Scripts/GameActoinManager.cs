@@ -14,6 +14,7 @@ public class GameActoinManager : MonoBehaviour
     public Image portraitImg;
     public bool isAction;
     public GameObject panel;
+    public Image shopPanel;
     public void Action(GameObject scanObj)
     {
         isAction = true;
@@ -48,6 +49,10 @@ public class GameActoinManager : MonoBehaviour
         if(objData.id == 300 &&isAction == false)
         {
             panel.gameObject.SetActive(true);
+        }
+        if(objData.id == 100 && isAction == false)
+        {
+            shopPanel.gameObject.SetActive(true);
         }
     }
     void Talk(int id, bool isNpc)

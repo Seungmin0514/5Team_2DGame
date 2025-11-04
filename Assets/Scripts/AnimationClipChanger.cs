@@ -72,13 +72,28 @@ public class AnimationClipChanger : MonoBehaviour
 
     public void SwitchToTypeA()
     {
-        GameDataManager.Instance.selectedCharacter = CharacterType.Two;
-        SwitchToSet(CharacterTypeA);
+        if (GameDataManager.Instance.isPurchasedA)
+        {
+            GameDataManager.Instance.selectedCharacter = CharacterType.Two;
+            SwitchToSet(CharacterTypeA);
+        }
+        else
+        {
+            Debug.Log("아직 구매하지 않음");
+        }   
     }
     public void SwitchToTypeB()
     {
-        GameDataManager.Instance.selectedCharacter = CharacterType.One;
-        SwitchToSet(CharacterTypeB);
+        if (GameDataManager.Instance.isPurchasedB)
+        {
+            GameDataManager.Instance.selectedCharacter = CharacterType.One;
+            SwitchToSet(CharacterTypeB);
+        }
+        else
+        {
+            Debug.Log("아직 구매하지 않음");
+        }
+        
     }
     public void SwitchToTypeC()
     {
