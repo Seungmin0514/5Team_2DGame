@@ -13,7 +13,7 @@ public class GameDataManager : MonoBehaviour
     public static GameDataManager Instance;
 
     [SerializeField] private int defaultCoins = 200;
-    [SerializeField] private string defaultSkinId = "cookie_basic";
+    [SerializeField] private string defaultSkinId = "basic";
 
     //[SerializeField] private bool devCheats = false;
     //[SerializeField] private int cheatAddCoins = 100; // 단축키로 추가
