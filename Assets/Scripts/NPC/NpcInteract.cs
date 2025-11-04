@@ -64,13 +64,9 @@ public class NpcInteract : MonoBehaviour
         switch (role)
         {
             case Role.Shop:
-                if (shopManager)
-                {
-                    if (shopManager.panelRoot.activeSelf)
-                        shopManager.CloseShop();
-                    else
-                        shopManager.OpenShop();
-                }
+                if (shopManager) 
+                    shopManager.OpenShop();
+                else Debug.LogWarning("[NpcInteract] shopManager not assigned");
                 break;
 
             case Role.SkinSelect:
