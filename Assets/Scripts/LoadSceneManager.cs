@@ -25,11 +25,13 @@ public class LoadSceneManager : MonoBehaviour
     public void EnterGame()
     {
         SceneManager.sceneLoaded += OnGameSceneLoaded;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene");
     }
 
     public void EndGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("VillageScene");
     }
 

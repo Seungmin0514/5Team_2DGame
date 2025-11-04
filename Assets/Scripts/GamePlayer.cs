@@ -21,6 +21,7 @@ public class GamePlayer : MonoBehaviour
     public float moveSpeed = 5f;
     public float skillSpeedMultiplier = 1f; 
     private float Cooldown =0f;
+    SkillIcon skillIcon;
 
     AudioSource audioSource;
     public AudioClip jumpClip;
@@ -49,6 +50,7 @@ public class GamePlayer : MonoBehaviour
     {
         PlayerStartPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
+        skillIcon = FindObjectOfType<SkillIcon>();
     }
     private void Update()
     {
@@ -171,8 +173,17 @@ public class GamePlayer : MonoBehaviour
             gamePlayerAnimationControl.DieAnimation();
             RunGameManager.Instance.EndGame();
             Debug.Log("die");
-            
-            
+
+            ResultUI resultUI = FindObjectOfType<ResultUI>();
+            if (resultUI != null)
+            {
+                resultUI.ShowResult();
+            }
+            else
+            {
+                Debug.LogWarning("ResultUI를 찾을 수 없습니다!");
+            }
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -196,6 +207,8 @@ public class GamePlayer : MonoBehaviour
         }
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
+        Debug.Log("쿨타임 값: " + characterData.cooldown);
+        skillIcon.StartCooltime(characterData.cooldown);
     }
     public void UseSlide()
     {

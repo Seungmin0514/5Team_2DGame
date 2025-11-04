@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHp: 5
   jumpForce: 30
   doubleJumpForce: 20
-  speed: 15
+  speed: 8
   gravity: 100
   animatorController: {fileID: 9100000, guid: 302c107bacc426b41be1d093ed801207, type: 2}
   skills: 1
