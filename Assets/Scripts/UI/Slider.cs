@@ -10,6 +10,7 @@ public class Slider : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Debug.Log("½ÇÇà");
         AudioManager.Instance.musicSlider = musicSlider;
         AudioManager.Instance.FXSlider = fxSlider;
         musicSlider.value = AudioManager.Instance.musicVolume;
