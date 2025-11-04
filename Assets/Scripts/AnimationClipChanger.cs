@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum selectedCharacter
+{
+    two, 
+    one,
+    three 
+}
 public class AnimationClipChanger : MonoBehaviour
 {
     private static class OriginalClipNames

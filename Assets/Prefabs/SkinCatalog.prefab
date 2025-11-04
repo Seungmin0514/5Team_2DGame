@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6139694894575397598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2729584133441553639}
+  - component: {fileID: 4866555100649790561}
+  m_Layer: 0
+  m_Name: SkinCatalog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2729584133441553639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139694894575397598}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4866555100649790561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6139694894575397598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cfcc9e2bf59d54aaec9fe6bfc5793b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - skinId: two
+    displayName: "\uCE90\uB9AD\uD1301"
+    price: 0
+    portrait: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
+    silhouette: {fileID: 21300000, guid: 3dec18ebd67e6754c9e2f8d1e13ba5f9, type: 3}
+    type: 1
+  - skinId: one
+    displayName: "\uCE90\uB9AD\uD1302"
+    price: 100
+    portrait: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
+    silhouette: {fileID: 21300000, guid: 8a1703d3cc11d9443860270d8b35936f, type: 3}
+    type: 0
+  - skinId: three
+    displayName: "\uCE90\uB9AD\uD1303"
+    price: 200
+    portrait: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
+    silhouette: {fileID: 21300000, guid: b2baa21cd62b9d14f90e3fea9f42a991, type: 3}
+    type: 2

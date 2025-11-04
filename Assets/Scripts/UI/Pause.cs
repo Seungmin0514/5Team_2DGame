@@ -37,6 +37,7 @@ public class Pause : MonoBehaviour
     public void ClickQuitGame()
     {
         PlayerPrefs.Save();
+        Time.timeScale = 1f;
         SceneManager.LoadScene("VillageScene");
     }
     public void ClickQuitVillage()

@@ -5,12 +5,7 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
 
-public enum CharacterType
-{
-    One,
-    Two,
-    Three,
-}
+
 
 public class GameCharacterManager : MonoBehaviour
 {
