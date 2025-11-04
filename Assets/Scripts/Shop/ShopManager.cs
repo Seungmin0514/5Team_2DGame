@@ -16,9 +16,12 @@ public class ShopManager : MonoBehaviour
     public PurchaseDialog purchaseDialog;
 
     [Header("Shop Listing")]
-    public string[] saleSkinIds;          
+    public List<string> saleSkinIds = new();
 
-    void Awake() { if (panelRoot) panelRoot.SetActive(false); }
+    void Awake() 
+    {
+        if (panelRoot) panelRoot.SetActive(false);
+    }
 
     void OnEnable()
     {

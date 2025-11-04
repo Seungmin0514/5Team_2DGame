@@ -18,14 +18,16 @@ public class ShopItemSlot : MonoBehaviour
 
     public void Setup(SkinConfig cfg, ShopManager shop)
     {
-        this.cfg = cfg; this.shop = shop;
+        this.cfg = cfg; 
+        this.shop = shop;
+        if (portraitImage) portraitImage.sprite = cfg.portrait;
         if (nameText) nameText.text = cfg.displayName;
         if (priceText) priceText.text = cfg.price.ToString();
 
         openDialogButton.onClick.RemoveAllListeners();
         openDialogButton.onClick.AddListener(() => shop.OpenPurchaseDialog(cfg));
 
-        RefreshView();
+        //RefreshView();
     }
 
     public void RefreshView()
