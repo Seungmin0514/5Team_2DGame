@@ -13,7 +13,7 @@ public class GameActoinManager : MonoBehaviour
     public GameObject talkPanel;
     public Image portraitImg;
     public bool isAction;
-    
+    public GameObject panel;
     public void Action(GameObject scanObj)
     {
         isAction = true;
@@ -44,6 +44,10 @@ public class GameActoinManager : MonoBehaviour
                 Vector3 newPosition = new Vector3(-2.46f, -2.7f, 0f);
                 player.transform.position = newPosition;
             }
+        }
+        if(objData.id == 300 &&isAction == false)
+        {
+            panel.gameObject.SetActive(true);
         }
     }
     void Talk(int id, bool isNpc)

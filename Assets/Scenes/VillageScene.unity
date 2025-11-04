@@ -3170,6 +3170,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3710979139005708754, guid: 7329c12b8d40e7846ab983150882fed0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7292,6 +7296,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823388934}
   m_CullTransparentMesh: 1
+--- !u!1 &1919782901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3665956554524902554, guid: 7329c12b8d40e7846ab983150882fed0, type: 3}
+  m_PrefabInstance: {fileID: 784361304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1955981299
 GameObject:
   m_ObjectHideFlags: 0
@@ -7310,7 +7319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1955981300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7639,6 +7648,7 @@ MonoBehaviour:
   talkPanel: {fileID: 1978048321}
   portraitImg: {fileID: 992635763}
   isAction: 0
+  panel: {fileID: 1919782901}
 --- !u!4 &2033671808
 Transform:
   m_ObjectHideFlags: 0
@@ -8482,7 +8492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1125414911180442504, guid: a997b767c0e212d4f890e926f492e25f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.16666669
       objectReference: {fileID: 0}
     - target: {fileID: 1237494980790855734, guid: a997b767c0e212d4f890e926f492e25f, type: 3}
       propertyPath: m_AnchoredPosition.x
