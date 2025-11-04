@@ -8,7 +8,7 @@ public class Slider : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Slider musicSlider;
     [SerializeField] private UnityEngine.UI.Slider fxSlider;
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
         AudioManager.Instance.musicSlider = musicSlider;
         AudioManager.Instance.FXSlider = fxSlider;

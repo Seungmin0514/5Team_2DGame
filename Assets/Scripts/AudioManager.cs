@@ -32,10 +32,14 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        musicVolume = musicSlider.value;
-        musicAudioSource.volume = musicVolume;
-        fxVolume = FXSlider.value;
         FXAudioSource.volume = fxVolume;
+        musicAudioSource.volume = musicVolume;
+
+        if (FXSlider != null &&musicSlider !=null)
+        {
+            fxVolume = FXSlider.value;
+            musicVolume = musicSlider.value;
+        }
     }
 
 
