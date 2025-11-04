@@ -24,14 +24,19 @@ public class LoadSceneManager : MonoBehaviour
     }
     public void EnterGame()
     {
+        AudioManager.Instance.PlayGameMusic();
         SceneManager.sceneLoaded += OnGameSceneLoaded;
+        SceneManager.sceneLoaded += AudioManager.Instance.OnLoadSceneVolume;
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("GameScene");
     }
 
     public void EndGame()
     {
+        AudioManager.Instance.PlayVilageMusic();
         Time.timeScale = 1f;
+        SceneManager.sceneLoaded += AudioManager.Instance.OnLoadSceneVolume;
         SceneManager.LoadScene("VillageScene");
     }
 
