@@ -15,10 +15,9 @@ public class ResultUI : MonoBehaviour
 
     public void ShowResult()
     {
-        currentGoldTxt.text = RunGameManager.Instance.gold.ToString();
+        currentGoldTxt.text = ((int)RunGameManager.Instance.gold).ToString();
         bestGoldTxt.text = RunGameManager.Instance.bestGold.ToString();
         panel.SetActive(true);
-        RunGameManager.Instance.EndGame();
         Time.timeScale = 0f;
     }
 }

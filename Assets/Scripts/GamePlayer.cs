@@ -173,8 +173,17 @@ public class GamePlayer : MonoBehaviour
             gamePlayerAnimationControl.DieAnimation();
             RunGameManager.Instance.EndGame();
             Debug.Log("die");
-            
-            
+
+            ResultUI resultUI = FindObjectOfType<ResultUI>();
+            if (resultUI != null)
+            {
+                resultUI.ShowResult();
+            }
+            else
+            {
+                Debug.LogWarning("ResultUI를 찾을 수 없습니다!");
+            }
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
