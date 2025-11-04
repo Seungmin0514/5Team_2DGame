@@ -184,7 +184,7 @@ public class GamePlayer : MonoBehaviour
             RunGameManager.Instance.EndGame();
             Debug.Log("die");
 
-            ResultUI resultUI = FindObjectOfType<ResultUI>();
+            ResultUI resultUI = FindObjectOfType<ResultUI>(true);
             if (resultUI != null)
             {
                 resultUI.ShowResult();
@@ -215,6 +215,7 @@ public class GamePlayer : MonoBehaviour
         {
             AudioManager.Instance.PlayerFx(skill.SkillClip);
         }
+        skill.UseSkill(this);
         skill.UseSkill(this);
         gamePlayerAnimationControl.UseSkillAnimation();
         Debug.Log("ÄðÅ¸ÀÓ °ª: " + characterData.cooldown);
