@@ -3026,6 +3026,7 @@ GameObject:
   - component: {fileID: 1164150071}
   - component: {fileID: 1164150070}
   - component: {fileID: 1164150074}
+  - component: {fileID: 1164150075}
   m_Layer: 5
   m_Name: TitleCanvas
   m_TagString: Untagged
@@ -3136,6 +3137,20 @@ MonoBehaviour:
   settingBtn: {fileID: 99512470}
   quitBtn: {fileID: 2127328008}
   settingPanel: {fileID: 111869740}
+--- !u!114 &1164150075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164150069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad48938f94fd30499f7f6da370e86f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 713588634}
+  fxSlider: {fileID: 251370748}
 --- !u!1 &1180009186
 GameObject:
   m_ObjectHideFlags: 0
