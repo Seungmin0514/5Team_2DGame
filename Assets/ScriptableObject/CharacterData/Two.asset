@@ -21,7 +21,7 @@ MonoBehaviour:
   gravity: 100
   animatorController: {fileID: 9100000, guid: 302c107bacc426b41be1d093ed801207, type: 2}
   skills: 1
-  skillName: HyperSpeed
+  skillName: Heal
   cooldown: 20
   skillIcon: {fileID: -965272301, guid: e827bcdb03603c54893544583dcd3b56, type: 3}
   skillIconDisabled: {fileID: 868356036, guid: e827bcdb03603c54893544583dcd3b56, type: 3}
