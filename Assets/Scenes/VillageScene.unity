@@ -4364,8 +4364,8 @@ MonoBehaviour:
   GameMusic: {fileID: 8300000, guid: bef0cef2ded0f0645ad90c6e5bdd4965, type: 3}
   musicSlider: {fileID: 5952198588807519185}
   FXSlider: {fileID: 8725355647623519307}
-  musicVolume: 0
-  fxVolume: 0
+  musicVolume: 0.5
+  fxVolume: 0.5
 --- !u!4 &775055438
 Transform:
   m_ObjectHideFlags: 0
