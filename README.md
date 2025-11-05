@@ -122,5 +122,6 @@
 - **GameDataManager** – 캐릭터 및 골드 데이터 저장  
 - **AudioManager** – 배경음악 및 효과음 관리  
 
-
-
+---
+에셋 출처
+Dino Characters  -  twitter @ArksDigital
